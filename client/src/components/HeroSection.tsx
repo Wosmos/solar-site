@@ -74,14 +74,7 @@ export default function HeroSection() {
               variant="outline" 
               className="text-lg px-8 py-6 bg-background/10 backdrop-blur border-white/20 text-white hover:bg-background/20 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
               data-testid="button-request-proposal"
-              onClick={() => {
-                const contactSection = document.querySelector('[data-section="contact"]');
-                if (contactSection) {
-                  contactSection.scrollIntoView({ behavior: 'smooth' });
-                } else {
-                  window.location.href = '/contact';
-                }
-              }}
+              onClick={() => window.location.href = '/contact'}
             >
               Request a Proposal
             </Button>

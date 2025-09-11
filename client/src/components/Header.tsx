@@ -79,7 +79,7 @@ export default function Header({ onThemeToggle, isDark = false }: HeaderProps) {
           <Button
             className="hidden md:flex"
             data-testid="button-contact-cta"
-            onClick={() => console.log('Contact us clicked')}
+            onClick={() => window.location.href = '/contact'}
           >
             Contact Us
           </Button>
@@ -119,7 +119,7 @@ export default function Header({ onThemeToggle, isDark = false }: HeaderProps) {
                   className="mt-6"
                   data-testid="button-mobile-contact-cta"
                   onClick={() => {
-                    console.log('Contact us clicked');
+                    window.location.href = '/contact';
                     setIsOpen(false);
                   }}
                 >

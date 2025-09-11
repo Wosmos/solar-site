@@ -3,7 +3,7 @@ import HeroSection from '@/components/HeroSection';
 import ServicesSection from '@/components/ServicesSection';
 import ProjectsSection from '@/components/ProjectsSection';
 import AboutSection from '@/components/AboutSection';
-import ContactSection from '@/components/ContactSection';
+import CTASection from '@/components/CTASection';
 
 export default function Home() {
   const homeStructuredData = {
@@ -123,7 +123,7 @@ export default function Home() {
         <ServicesSection />
         <ProjectsSection />
         <AboutSection />
-        <ContactSection />
+        <CTASection />
       </div>
     </>
   );
