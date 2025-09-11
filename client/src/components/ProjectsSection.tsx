@@ -119,7 +119,7 @@ export default function ProjectsSection() {
     return () => observer.disconnect();
   }, []);
   return (
-    <section ref={sectionRef} className="py-24 bg-muted/30 relative overflow-hidden">
+    <section ref={sectionRef} data-section="projects" className="py-24 bg-muted/30 relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute top-0 -left-4 w-72 h-72 bg-primary rounded-full mix-blend-multiply filter blur-xl animate-pulse"></div>

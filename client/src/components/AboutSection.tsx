@@ -71,7 +71,7 @@ const management = [
 
 export default function AboutSection() {
   return (
-    <section className="py-24 bg-background">
+    <section data-section="about" className="py-24 bg-background">
       <div className="container mx-auto px-4">
         {/* Company Overview */}
         <div className="text-center mb-20">

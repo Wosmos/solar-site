@@ -55,9 +55,16 @@ export default function HeroSection() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
             <Button 
               size="lg" 
-              className="text-lg px-8 py-6 bg-gradient-to-r from-primary to-blue-600 hover:from-primary/90 hover:to-blue-600/90 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+              className="text-lg px-8 py-6 bg-gradient-to-r from-primary to-blue-600 hover:from-primary/90 hover:to-blue-600/90 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 group"
               data-testid="button-view-projects"
-              onClick={() => console.log('View projects clicked')}
+              onClick={() => {
+                const projectsSection = document.querySelector('[data-section="projects"]');
+                if (projectsSection) {
+                  projectsSection.scrollIntoView({ behavior: 'smooth' });
+                } else {
+                  window.location.href = '/projects';
+                }
+              }}
             >
               View Our Projects
               <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
@@ -67,7 +74,14 @@ export default function HeroSection() {
               variant="outline" 
               className="text-lg px-8 py-6 bg-background/10 backdrop-blur border-white/20 text-white hover:bg-background/20 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
               data-testid="button-request-proposal"
-              onClick={() => console.log('Request proposal clicked')}
+              onClick={() => {
+                const contactSection = document.querySelector('[data-section="contact"]');
+                if (contactSection) {
+                  contactSection.scrollIntoView({ behavior: 'smooth' });
+                } else {
+                  window.location.href = '/contact';
+                }
+              }}
             >
               Request a Proposal
             </Button>

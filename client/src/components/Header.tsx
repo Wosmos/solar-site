@@ -23,8 +23,15 @@ export default function Header({ onThemeToggle, isDark = false }: HeaderProps) {
 
   const isActive = (href: string) => location === href;
 
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 transition-all duration-300">
       <div className="container mx-auto flex h-16 items-center justify-between px-4">
         <Link href="/" data-testid="link-home-logo">
           <div className="flex items-center space-x-3">

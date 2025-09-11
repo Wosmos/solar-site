@@ -81,7 +81,7 @@ export default function ServicesSection() {
     return () => observer.disconnect();
   }, []);
   return (
-    <section ref={sectionRef} className="py-24 bg-background relative overflow-hidden">
+    <section ref={sectionRef} data-section="services" className="py-24 bg-background relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent"></div>
       <div className="container mx-auto px-4">

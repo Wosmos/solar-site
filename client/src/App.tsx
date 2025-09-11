@@ -6,6 +6,8 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import SkipToContent from "@/components/SkipToContent";
+import BackToTop from "@/components/BackToTop";
 import Home from "@/pages/Home";
 import About from "@/pages/About";
 import Services from "@/pages/Services";
@@ -24,8 +26,9 @@ function AppContent() {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <SkipToContent />
       <Header onThemeToggle={handleThemeToggle} isDark={isDark} />
-      <main className="flex-1">
+      <main id="main-content" className="flex-1 focus:outline-none" tabIndex={-1}>
         <Switch>
           <Route path="/" component={Home} />
           <Route path="/about" component={About} />
@@ -36,6 +39,7 @@ function AppContent() {
         </Switch>
       </main>
       <Footer />
+      <BackToTop />
     </div>
   );
 }

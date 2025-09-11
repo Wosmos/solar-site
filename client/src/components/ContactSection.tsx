@@ -90,7 +90,7 @@ export default function ContactSection() {
   };
 
   return (
-    <section className="py-24 bg-muted/30">
+    <section data-section="contact" className="py-24 bg-muted/30">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <div className="flex items-center justify-center gap-2 mb-4">
