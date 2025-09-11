@@ -4,6 +4,7 @@ import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { ThemeProvider } from "@/components/ThemeProvider";
+import { HelmetProvider } from 'react-helmet-async';
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SkipToContent from "@/components/SkipToContent";
@@ -49,8 +50,10 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <ThemeProvider defaultTheme="light">
-          <AppContent />
-          <Toaster />
+          <HelmetProvider>
+            <AppContent />
+            <Toaster />
+          </HelmetProvider>
         </ThemeProvider>
       </TooltipProvider>
     </QueryClientProvider>
