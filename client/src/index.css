@@ -202,9 +202,45 @@
     border: 1px solid rgba(255, 255, 255, 0.1);
   }
 
-  /* Focus visible for better accessibility */
+  /* Enhanced focus visible for better accessibility */
   .focus-visible:focus-visible {
     @apply outline-2 outline-offset-2 outline-primary;
+  }
+
+  /* Comprehensive focus management for all interactive elements */
+  button:focus-visible,
+  a:focus-visible,
+  input:focus-visible,
+  textarea:focus-visible,
+  select:focus-visible,
+  [tabindex]:focus-visible,
+  [role="button"]:focus-visible,
+  [role="link"]:focus-visible {
+    @apply outline-2 outline-offset-2 outline-primary;
+    outline-style: solid;
+    transition: outline-color 0.2s ease;
+  }
+
+  /* High contrast focus for better accessibility */
+  @media (prefers-contrast: high) {
+    button:focus-visible,
+    a:focus-visible,
+    input:focus-visible,
+    textarea:focus-visible,
+    select:focus-visible,
+    [tabindex]:focus-visible,
+    [role="button"]:focus-visible,
+    [role="link"]:focus-visible {
+      outline-width: 3px;
+      outline-color: currentColor;
+    }
+  }
+
+  /* Ensure no focus lost in high contrast mode */
+  @media (prefers-contrast: high) {
+    .focus-visible:focus-visible {
+      outline-width: 3px !important;
+    }
   }
 
   /* Reduce motion for users who prefer it */

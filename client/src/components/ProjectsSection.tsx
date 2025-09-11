@@ -742,7 +742,7 @@ export default function ProjectsSection() {
             <Building2 className="h-5 w-5 text-primary" />
             <span className="text-sm font-medium text-primary uppercase tracking-wider">Our Portfolio</span>
           </div>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6" role="heading" aria-level="2">
             Landmark Solar Projects That Define Industry Excellence
           </h2>
           <div className="max-w-4xl mx-auto space-y-4 mb-8">
@@ -859,24 +859,32 @@ export default function ProjectsSection() {
                 <div className="aspect-video overflow-hidden relative">
                   <img
                     src={project.image}
-                    alt={`${project.name} - ${project.description}`}
+                    alt={`${project.name} solar installation project in ${project.location} - ${project.description.substring(0, 100)}...`}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    loading="lazy"
+                    decoding="async"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   <div className="absolute top-4 left-4">
-                    <Badge className={`${getStatusColor(project.status)} text-xs`}>
+                    <Badge 
+                      className={`${getStatusColor(project.status)} text-xs`}
+                      aria-label={`Project status: ${project.status}`}
+                    >
                       {project.status}
                     </Badge>
                   </div>
                   <div className="absolute top-4 right-4">
-                    <SectorIcon className="h-5 w-5 text-white" />
+                    <SectorIcon 
+                      className="h-5 w-5 text-white" 
+                      aria-label={`${project.sector} sector project`}
+                    />
                   </div>
                 </div>
                 
                 <CardContent className="p-6">
                   <div className="flex items-start justify-between mb-4">
                     <div className="flex-1">
-                      <h3 className="text-xl font-semibold text-foreground mb-2">
+                      <h3 className="text-xl font-semibold text-foreground mb-2" role="heading" aria-level="3">
                         {project.name}
                       </h3>
                       <div className="flex items-center gap-4 text-sm text-muted-foreground mb-2">
@@ -1259,8 +1267,8 @@ export default function ProjectsSection() {
         {/* Engineering Excellence Section */}
         <Card className="mb-16">
           <CardHeader>
-            <h3 className="text-2xl font-bold text-foreground flex items-center gap-2">
-              <Wrench className="h-6 w-6 text-secondary" />
+            <h3 className="text-2xl font-bold text-foreground flex items-center gap-2" role="heading" aria-level="3">
+              <Wrench className="h-6 w-6 text-secondary" aria-hidden="true" />
               Engineering Excellence & Methodologies
             </h3>
           </CardHeader>

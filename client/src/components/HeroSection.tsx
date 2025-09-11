@@ -16,8 +16,11 @@ export default function HeroSection() {
       <div className="absolute inset-0">
         <img
           src={solarFarmImage}
-          alt="Large-scale solar installation"
+          alt="Aerial view of a large-scale utility solar farm with thousands of photovoltaic panels arranged in geometric patterns across desert landscape, demonstrating Fazna Solar Energy's expertise in mega-scale renewable energy installations"
           className="w-full h-full object-cover"
+          loading="eager"
+          decoding="async"
+          fetchpriority="high"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/30"></div>
       </div>
@@ -28,16 +31,28 @@ export default function HeroSection() {
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
         }`}>
           <div className="flex flex-wrap justify-center gap-6 mb-12">
-            <Badge variant="outline" className="bg-white/15 backdrop-blur-md border-white/30 text-white text-sm px-5 py-3 font-semibold shadow-lg hover:bg-white/20 transition-all duration-300">
-              <Zap className="w-4 h-4 mr-2" />
+            <Badge 
+              variant="outline" 
+              className="bg-black/40 backdrop-blur-md border-white/50 text-white text-sm px-5 py-3 font-semibold shadow-lg hover:bg-black/50 transition-all duration-300"
+              data-testid="badge-capacity"
+            >
+              <Zap className="w-4 h-4 mr-2" aria-hidden="true" />
               2+ GW Successfully Delivered
             </Badge>
-            <Badge variant="outline" className="bg-white/15 backdrop-blur-md border-white/30 text-white text-sm px-5 py-3 font-semibold shadow-lg hover:bg-white/20 transition-all duration-300">
-              <Globe className="w-4 h-4 mr-2" />
+            <Badge 
+              variant="outline" 
+              className="bg-black/40 backdrop-blur-md border-white/50 text-white text-sm px-5 py-3 font-semibold shadow-lg hover:bg-black/50 transition-all duration-300"
+              data-testid="badge-projects"
+            >
+              <Globe className="w-4 h-4 mr-2" aria-hidden="true" />
               10+ Major Projects Completed
             </Badge>
-            <Badge variant="outline" className="bg-white/15 backdrop-blur-md border-white/30 text-white text-sm px-5 py-3 font-semibold shadow-lg hover:bg-white/20 transition-all duration-300">
-              <Award className="w-4 h-4 mr-2" />
+            <Badge 
+              variant="outline" 
+              className="bg-black/40 backdrop-blur-md border-white/50 text-white text-sm px-5 py-3 font-semibold shadow-lg hover:bg-black/50 transition-all duration-300"
+              data-testid="badge-certification"
+            >
+              <Award className="w-4 h-4 mr-2" aria-hidden="true" />
               ISO 9001:2015 Certified
             </Badge>
           </div>
@@ -79,9 +94,10 @@ export default function HeroSection() {
             <Button 
               size="lg" 
               variant="outline" 
-              className="text-lg px-10 py-6 bg-white/15 backdrop-blur-md border-2 border-white/30 text-white hover:bg-white/25 hover:border-white/40 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-[1.02] font-semibold"
+              className="text-lg px-10 py-6 bg-black/30 backdrop-blur-md border-2 border-white/60 text-white hover:bg-black/40 hover:border-white/70 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-[1.02] font-semibold"
               data-testid="button-request-proposal"
               onClick={() => window.location.href = '/contact'}
+              aria-label="Contact us to discuss your solar project partnership"
             >
               Let's Partner
             </Button>
@@ -111,12 +127,17 @@ export default function HeroSection() {
 
       {/* Enhanced Scroll Indicator */}
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
-        <div className="flex flex-col items-center gap-2 animate-bounce cursor-pointer" onClick={() => {
-          window.scrollTo({ top: window.innerHeight, behavior: 'smooth' });
-        }}>
+        <button 
+          className="flex flex-col items-center gap-2 animate-bounce focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-black/20 rounded-lg p-2 hover:bg-white/10 transition-all duration-200"
+          onClick={() => {
+            window.scrollTo({ top: window.innerHeight, behavior: 'smooth' });
+          }}
+          aria-label="Scroll down to explore more content"
+          data-testid="button-scroll-indicator"
+        >
           <span className="text-white/70 text-sm font-medium">Scroll to explore</span>
-          <ChevronDown className="h-6 w-6 text-white/50" />
-        </div>
+          <ChevronDown className="h-6 w-6 text-white/50" aria-hidden="true" />
+        </button>
       </div>
     </section>
   );
