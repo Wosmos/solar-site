@@ -65,7 +65,7 @@ const management = [
     name: 'Chittibabu Lakkum',
     title: 'Technical Director',
     location: 'India Operations',
-    description: 'Distinguished technical expert with 20+ years in utility-scale solar EPC operations. Led technical delivery of multiple gigawatt-scale projects with industry-leading performance ratios. Specialized in advanced installation methodologies, quality control systems, and operational excellence across desert and challenging environments.',
+    description: 'Distinguished technical expert with 20+ years in utility-scale solar INC operations. Led technical delivery of multiple gigawatt-scale projects with industry-leading performance ratios. Specialized in advanced installation methodologies, quality control systems, and operational excellence across desert and challenging environments.',
     achievements: ['20+ Years Experience', '1GW+ Technical Delivery', 'Advanced Installation Systems'],
     image: '/images/placeholder-technical.jpg',
     contact: '+91 7981505254'
@@ -87,7 +87,7 @@ export default function AboutSection() {
           </h2>
           <div className="max-w-4xl mx-auto space-y-6 text-lg text-muted-foreground leading-relaxed">
             <p className="font-medium text-xl">
-              Since 2022, Fazna Solar Energy LLC has rapidly emerged as the region&apos;s most trusted EPC contractor, 
+              Since 2022, Fazna Solar Energy LLC has rapidly emerged as the region&apos;s most trusted INC contractor, 
               delivering over 2GW of utility-scale solar capacity across landmark projects including Sweihan (1.18GW) 
               and Al Dhafra (2GW) with zero safety incidents and industry-leading performance ratios.
             </p>
@@ -105,7 +105,7 @@ export default function AboutSection() {
           <div>
             <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-6">Our Mission</h3>
             <p className="text-lg text-muted-foreground leading-relaxed mb-4">
-              To be the Middle East&apos;s most trusted solar EPC partner by delivering world-class engineering 
+              To be the Middle East&apos;s most trusted solar INC partner by delivering world-class engineering 
               solutions that exceed client expectations and accelerate the region&apos;s renewable energy transformation.
             </p>
             <div className="bg-primary/5 p-6 rounded-lg mb-8">
@@ -233,7 +233,7 @@ export default function AboutSection() {
         </div>
 
         {/* Parent Company Info */}
-        <div className="mt-20 text-center">
+        {/* <div className="mt-20 text-center">
           <div className="bg-muted/30 rounded-lg p-8">
             <h4 className="text-xl font-semibold text-foreground mb-4">
               Part of Aye Totes Group
@@ -244,7 +244,7 @@ export default function AboutSection() {
               across international markets.
             </p>
           </div>
-        </div>
+        </div> */}
       </div>
     </section>
   );

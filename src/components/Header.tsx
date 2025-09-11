@@ -114,7 +114,7 @@ export default function Header() {
                     </div>
                   </div>
                   <p className="text-sm text-muted-foreground">
-                    Leading EPC contractor for utility-scale solar projects
+                    Leading INC contractor for utility-scale solar projects
                   </p>
                 </div>
 

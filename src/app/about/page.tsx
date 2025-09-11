@@ -7,10 +7,10 @@ import AboutSection from '@/components/AboutSection'
 
 export const metadata: Metadata = {
   title: 'About Us - Fazna Solar Energy LLC',
-  description: 'Learn about Fazna Solar Energy LLC, a leading EPC contractor with expertise in utility-scale solar installations across the Middle East and India.',
+  description: 'Learn about Fazna Solar Energy LLC, a leading INC contractor with expertise in utility-scale solar installations across the Middle East and India.',
   openGraph: {
     title: 'About Us - Fazna Solar Energy LLC',
-    description: 'Learn about Fazna Solar Energy LLC, a leading EPC contractor with expertise in utility-scale solar installations.',
+    description: 'Learn about Fazna Solar Energy LLC, a leading INC contractor with expertise in utility-scale solar installations.',
   },
 }
 

@@ -11,11 +11,11 @@ import ContactSection from '@/components/ContactSection'
 import CTASection from '@/components/CTASection'
 
 export const metadata: Metadata = {
-  title: 'Fazna Solar Energy LLC - Premier EPC Solar Contractor',
-  description: 'Leading EPC contractor specializing in utility-scale solar installations across the Middle East and India. Expert engineering, procurement, and construction services for renewable energy projects.',
+  title: 'Fazna Solar Energy LLC - Premier INC Solar Contractor',
+  description: 'Leading INC contractor specializing in utility-scale solar installations across the Middle East and India. Expert engineering, procurement, and construction services for renewable energy projects.',
   openGraph: {
-    title: 'Fazna Solar Energy LLC - Premier EPC Solar Contractor',
-    description: 'Leading EPC contractor specializing in utility-scale solar installations across the Middle East and India.',
+    title: 'Fazna Solar Energy LLC - Premier INC Solar Contractor',
+    description: 'Leading INC contractor specializing in utility-scale solar installations across the Middle East and India.',
     url: 'https://fazna-solar.com',
     siteName: 'Fazna Solar Energy LLC',
     images: [
@@ -31,8 +31,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Fazna Solar Energy LLC - Premier EPC Solar Contractor',
-    description: 'Leading EPC contractor specializing in utility-scale solar installations across the Middle East and India.',
+    title: 'Fazna Solar Energy LLC - Premier INC Solar Contractor',
+    description: 'Leading INC contractor specializing in utility-scale solar installations across the Middle East and India.',
     images: ['/og-image.jpg'],
   },
 }
@@ -48,7 +48,7 @@ export default function HomePage() {
         <ServicesSection />
         <ProjectsSection />
         <CTASection />
-        <ContactSection />
+        {/* <ContactSection /> */}
       </main>
       <Footer />
       <BackToTop />

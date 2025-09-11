@@ -36,7 +36,7 @@ import {
   Telescope
 } from 'lucide-react';
 
-// Core EPC Services
+// Core INC Services
 const coreServices = [
   {
     icon: Wrench,
@@ -124,7 +124,7 @@ const coreServices = [
     title: 'Utility-Scale Ground Mounted',
     category: 'Large-Scale Infrastructure',
     description: 'End-to-end utility-scale solar installations with comprehensive project management, from 50MW to 1GW+ developments across desert and industrial environments.',
-    detailedDescription: 'Our utility-scale service manages complete EPC delivery for large solar farms including site preparation, infrastructure development, grid integration, and commissioning. We leverage extensive experience from projects like Sweihan (1.18GW) and Al Dhafra (2GW).',
+    detailedDescription: 'Our utility-scale service manages complete INC delivery for large solar farms including site preparation, infrastructure development, grid integration, and commissioning. We leverage extensive experience from projects like Sweihan (1.18GW) and Al Dhafra (2GW).',
     capabilities: [
       'Site preparation & civil works',
       'Large-scale infrastructure development',
@@ -324,7 +324,7 @@ const projectHighlights = [
     name: 'Sweihan Solar Park',
     capacity: '1.18GW',
     location: 'Abu Dhabi, UAE',
-    role: 'EPC Contractor',
+    role: 'INC Contractor',
     achievement: 'World\'s largest single-site solar project',
     technology: 'Single-axis tracking, bifacial modules'
   },
@@ -340,7 +340,7 @@ const projectHighlights = [
     name: 'Sakkakah Solar',
     capacity: '300MW',
     location: 'Saudi Arabia',
-    role: 'EPC Partner',
+    role: 'INC Partner',
     achievement: 'Desert installation excellence',
     technology: 'Robust desert-grade design'
   },
@@ -395,7 +395,7 @@ const valuePropositions = [
     icon: Building2,
     benefits: [
       'Accelerated project delivery with proven 200MW+ monthly installation rates',
-      'Risk mitigation through comprehensive EPC warranties and performance guarantees',
+      'Risk mitigation through comprehensive INC warranties and performance guarantees',
       'LCOE optimization via advanced technology integration and efficient execution',
       'Regulatory compliance and grid code adherence across multiple jurisdictions'
     ]
@@ -464,10 +464,10 @@ export default function ServicesSection() {
           <div className="text-center mb-16">
             <div className="flex items-center justify-center gap-2 mb-4">
               <Sun className="h-5 w-5 text-primary" />
-              <span className="text-sm font-medium text-primary uppercase tracking-wider">EPC Excellence</span>
+              <span className="text-sm font-medium text-primary uppercase tracking-wider">INC Excellence</span>
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">
-              World-Class Solar EPC Excellence
+              World-Class Solar INC Excellence
             </h1>
             <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed mb-8">
               Delivering record-breaking solar installations from 50MW to multi-gigawatt scale across the Middle East and India. 
@@ -512,10 +512,10 @@ export default function ServicesSection() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
-              Proven EPC Excellence Across Every Phase
+              Proven INC Excellence Across Every Phase
             </h2>
             <p className="text-lg text-muted-foreground max-w-4xl mx-auto leading-relaxed">
-              From advanced robotic installations to precision engineering, our comprehensive EPC services deliver 
+              From advanced robotic installations to precision engineering, our comprehensive INC services deliver 
               measurable results. <strong>Average performance ratio exceeding 85%</strong> with industry-leading 
               installation speeds and uncompromising safety standards.
             </p>
@@ -830,37 +830,7 @@ export default function ServicesSection() {
         </div>
       </section>
 
-      {/* Call to Action */}
-      <section className="py-24 bg-gradient-to-r from-primary via-primary/90 to-secondary text-primary-foreground">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Ready to Start Your Solar Project?
-          </h2>
-          <p className="text-xl mb-8 max-w-2xl mx-auto opacity-90">
-            Partner with Fazna Solar Energy for world-class EPC delivery and proven expertise across utility-scale solar installations.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button 
-              size="lg" 
-              variant="outline" 
-              className="bg-background/10 border-background/20 text-primary-foreground hover:bg-background/20"
-              data-testid="button-contact-services"
-            >
-              <Users className="h-5 w-5 mr-2" />
-              Contact Our Team
-            </Button>
-            <Button 
-              size="lg" 
-              variant="outline"
-              className="bg-background/10 border-background/20 text-primary-foreground hover:bg-background/20"
-              data-testid="button-project-discussion"
-            >
-              <FileCheck className="h-5 w-5 mr-2" />
-              Discuss Your Project
-            </Button>
-          </div>
-        </div>
-      </section>
+  
     </div>
   );
 }

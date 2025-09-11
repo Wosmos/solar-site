@@ -23,11 +23,11 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   title: {
-    default: 'Fazna Solar Energy LLC - Premier EPC Solar Contractor',
+    default: 'Fazna Solar Energy LLC - Premier INC Solar Contractor',
     template: '%s | Fazna Solar Energy LLC'
   },
-  description: 'Leading EPC contractor specializing in utility-scale solar installations across the Middle East and India. Expert engineering, procurement, and construction services for renewable energy projects.',
-  keywords: ['solar energy', 'EPC contractor', 'utility-scale solar', 'renewable energy', 'Middle East', 'India', 'solar installation'],
+  description: 'Leading INC contractor specializing in utility-scale solar installations across the Middle East and India. Expert engineering, procurement, and construction services for renewable energy projects.',
+  keywords: ['solar energy', 'INC contractor', 'utility-scale solar', 'renewable energy', 'Middle East', 'India', 'solar installation'],
   authors: [{ name: 'Fazna Solar Energy LLC' }],
   creator: 'Fazna Solar Energy LLC',
   publisher: 'Fazna Solar Energy LLC',
@@ -45,8 +45,8 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: 'https://fazna-solar.com',
     siteName: 'Fazna Solar Energy LLC',
-    title: 'Fazna Solar Energy LLC - Premier EPC Solar Contractor',
-    description: 'Leading EPC contractor specializing in utility-scale solar installations across the Middle East and India.',
+    title: 'Fazna Solar Energy LLC - Premier INC Solar Contractor',
+    description: 'Leading INC contractor specializing in utility-scale solar installations across the Middle East and India.',
     images: [
       {
         url: '/og-image.jpg',
@@ -58,8 +58,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Fazna Solar Energy LLC - Premier EPC Solar Contractor',
-    description: 'Leading EPC contractor specializing in utility-scale solar installations across the Middle East and India.',
+    title: 'Fazna Solar Energy LLC - Premier INC Solar Contractor',
+    description: 'Leading INC contractor specializing in utility-scale solar installations across the Middle East and India.',
     images: ['/og-image.jpg'],
   },
   robots: {

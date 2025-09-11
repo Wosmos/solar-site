@@ -103,7 +103,7 @@ export default function ContactSection() {
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
             Ready to discuss your renewable energy project? Our team of experts is here to help you 
-            achieve your sustainability goals with world-class EPC solutions.
+            achieve your sustainability goals with world-class INC solutions.
           </p>
         </div>
 

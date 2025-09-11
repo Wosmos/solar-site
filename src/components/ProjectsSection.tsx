@@ -83,7 +83,7 @@ interface ProjectDetail {
   lessonLearned: string;
   futureImpact: string;
   sector: 'Utility' | 'Commercial' | 'Industrial' | 'Residential';
-  projectType: 'EPC' | 'Installation' | 'Consulting' | 'Maintenance';
+  projectType: 'INC' | 'Installation' | 'Consulting' | 'Maintenance';
 }
 
 // Comprehensive project data with detailed case studies
@@ -94,7 +94,7 @@ const projects: ProjectDetail[] = [
     location: 'Abu Dhabi, UAE',
     capacity: '1,177 MW',
     status: 'Completed',
-    scope: 'EPC Construction - Zones 1&4, Zone 3B',
+    scope: 'INC Construction - Zones 1&4, Zone 3B',
     description: 'One of the world&apos;s largest single-site solar projects, establishing new benchmarks for utility-scale solar development in the Middle East.',
     image: '/images/placeholder-project1.jpg',
     features: ['Utility-scale installation', 'Desert conditions', 'Grid integration', 'World-class efficiency'],
@@ -157,7 +157,7 @@ const projects: ProjectDetail[] = [
     lessonLearned: 'Large-scale coordination requires specialized project management tools and extensive local workforce development programs.',
     futureImpact: 'Sets the foundation for Abu Dhabi&apos;s 2030 renewable energy targets and demonstrates feasibility of gigawatt-scale solar projects in desert environments.',
     sector: 'Utility',
-    projectType: 'EPC'
+    projectType: 'INC'
   },
   {
     id: 2,
@@ -165,7 +165,7 @@ const projects: ProjectDetail[] = [
     location: 'Abu Dhabi, UAE',
     capacity: '2,000 MW',
     status: 'Completed',
-    scope: 'EPC Construction Services',
+    scope: 'INC Construction Services',
     description: 'Record-breaking solar installation establishing new global benchmarks for utility-scale solar development and desert engineering excellence.',
     image: '/images/placeholder-project2.jpg',
     features: ['Record capacity', 'Advanced tracking', 'High efficiency', 'Desert innovation'],
@@ -228,7 +228,7 @@ const projects: ProjectDetail[] = [
     lessonLearned: 'Bifacial technology requires specialized ground preparation and installation techniques that significantly impact project economics and performance.',
     futureImpact: 'Establishes bifacial solar as the preferred technology for utility-scale desert installations and provides technical foundation for next-generation projects.',
     sector: 'Utility',
-    projectType: 'EPC'
+    projectType: 'INC'
   },
   {
     id: 3,
@@ -307,7 +307,7 @@ const projects: ProjectDetail[] = [
     location: 'Dubai, UAE',
     capacity: '900 MW',
     status: 'Ongoing',
-    scope: 'EPC Services - Phase Implementation',
+    scope: 'INC Services - Phase Implementation',
     description: 'Strategic contribution to Dubai\'s Clean Energy Strategy 2050, implementing cutting-edge solar technology with smart city integration capabilities.',
     image: '/images/placeholder-project4.jpg',
     features: ['Smart city integration', 'Advanced technology', 'Phased delivery', 'Grid modernization'],
@@ -370,7 +370,7 @@ const projects: ProjectDetail[] = [
     lessonLearned: 'Advanced technology deployment requires extensive testing and validation protocols but delivers superior long-term performance.',
     futureImpact: 'Demonstrates integration capabilities for smart city renewable energy systems and establishes technical precedent for next-generation solar technology.',
     sector: 'Utility',
-    projectType: 'EPC'
+    projectType: 'INC'
   },
   {
     id: 5,
@@ -378,7 +378,7 @@ const projects: ProjectDetail[] = [
     location: 'Nimr, Oman',
     capacity: '100 MW',
     status: 'Completed',
-    scope: 'Specialized EPC Services - Oil & Gas Integration',
+    scope: 'Specialized INC Services - Oil & Gas Integration',
     description: 'Pioneering renewable energy integration with oil and gas operations, demonstrating versatility in specialized industrial applications.',
     image: '/images/placeholder-project5.jpg',
     features: ['Oil & gas integration', 'Remote location', 'Specialized requirements', 'Industrial reliability'],
@@ -441,7 +441,7 @@ const projects: ProjectDetail[] = [
     lessonLearned: 'Industrial renewable integration requires specialized equipment design and comprehensive safety protocols for seamless operation with existing facilities.',
     futureImpact: 'Establishes technical foundation for broader renewable integration across oil and gas sector and demonstrates economic viability of industrial solar applications.',
     sector: 'Industrial',
-    projectType: 'EPC'
+    projectType: 'INC'
   },
   {
     id: 6,
@@ -592,7 +592,7 @@ const projects: ProjectDetail[] = [
     location: 'Doha, Qatar',
     capacity: '200 MW',
     status: 'Planning',
-    scope: 'Grid Integration & EPC Services',
+    scope: 'Grid Integration & INC Services',
     description: 'Next-generation grid integration project supporting Qatar&apos;s National Vision 2030 with advanced energy storage and smart grid capabilities.',
     image: '/images/placeholder-project8.jpg',
     features: ['Energy storage', 'Smart grid', 'National strategy', 'Advanced integration'],
@@ -655,7 +655,7 @@ const projects: ProjectDetail[] = [
     lessonLearned: 'Next-generation technology projects require extensive research and development partnerships and comprehensive risk management strategies.',
     futureImpact: 'Establishes Fazna Solar as a technology leader in next-generation solar applications and energy storage integration.',
     sector: 'Utility',
-    projectType: 'EPC'
+    projectType: 'INC'
   }
 ];
 
@@ -1309,7 +1309,7 @@ export default function ProjectsSection() {
               Ready to Start Your Next Solar Project?
             </h3>
             <p className="text-lg text-muted-foreground mb-6 max-w-2xl mx-auto">
-              Partner with Fazna Solar Energy for world-class EPC services and proven expertise in utility-scale solar installations.
+              Partner with Fazna Solar Energy for world-class INC services and proven expertise in utility-scale solar installations.
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
               <Button size="lg" data-testid="button-discuss-project">

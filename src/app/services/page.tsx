@@ -7,10 +7,10 @@ import ServicesSection from '@/components/ServicesSection'
 
 export const metadata: Metadata = {
   title: 'Services - Fazna Solar Energy LLC',
-  description: 'Comprehensive EPC services for utility-scale solar projects including engineering, procurement, construction, and maintenance.',
+  description: 'Comprehensive INC services for utility-scale solar projects including engineering, procurement, construction, and maintenance.',
   openGraph: {
     title: 'Services - Fazna Solar Energy LLC',
-    description: 'Comprehensive EPC services for utility-scale solar projects including engineering, procurement, construction, and maintenance.',
+    description: 'Comprehensive INC services for utility-scale solar projects including engineering, procurement, construction, and maintenance.',
   },
 }
 

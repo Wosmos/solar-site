@@ -23,7 +23,7 @@ export default function Footer() {
   ]
 
   const services = [
-    'Solar EPC Services',
+    'Solar INC Services',
     'Tracker Installation',
     'Module Installation',
     'Robot Installation',
@@ -55,7 +55,7 @@ export default function Footer() {
             </Link>
             
             <p className="text-muted-foreground text-sm leading-relaxed">
-              Leading EPC contractor specializing in utility-scale solar installations across 
+              Leading INC contractor specializing in utility-scale solar installations across 
               the Middle East and India. Delivering world-class renewable energy solutions.
             </p>
             
