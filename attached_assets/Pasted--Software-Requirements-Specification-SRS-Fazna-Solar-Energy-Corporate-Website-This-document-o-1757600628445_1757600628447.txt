@@ -1,0 +1,121 @@
+# Software Requirements Specification (SRS): Fazna Solar Energy Corporate Website
+
+This document outlines the requirements for a new corporate website for Fazna Solar Energy LLC. The website will serve as a digital showcase for the company's EPC (Engineering, Procurement, Construction) services in the solar energy sector, targeting potential B2B clients and partners. The SRS follows best practices for structure and clarity .
+
+## 1. Introduction
+
+### 1.1 Purpose
+The purpose of this document is to define the functional and non-functional requirements for the development of Fazna Solar Energy's official website. This SRS will guide designers, developers, and stakeholders throughout the project lifecycle .
+
+### 1.2 Scope
+The website will be a marketing and informational platform, not a transactional system. It will present the company's profile, expertise, project portfolio, management team, certifications, and contact information. The system will be accessible via desktop and mobile browsers.
+
+### 1.3 Definitions
+*   **EPC:** Engineering, Procurement, and Construction.
+*   **B2B:** Business-to-Business.
+*   **UI/UX:** User Interface/User Experience.
+*   **CMS:** Content Management System.
+
+## 2. Overall Description
+
+### 2.1 Product Perspective
+The website is a standalone application that will replace or supplement the company's current digital presence. It will integrate with standard web analytics tools.
+
+### 2.2 Product Functions
+The core functions include displaying static content (text, images, videos), providing contact forms, and showcasing project case studies.
+
+### 2.3 User Characteristics
+The primary users are:
+*   **Potential Clients:** Large corporations, government entities, and developers seeking EPC contractors for solar projects.
+*   **Industry Partners:** Suppliers, technology providers, and investors.
+*   **Job Seekers:** Professionals looking for opportunities in the renewable energy sector.
+*   **General Public:** Individuals seeking information about the company.
+
+### 2.4 Constraints
+*   The website must reflect the company's ISO certifications (9001, 14001, 45001).
+*   Design must align with the professional and innovative image of a regional leader in renewable energy .
+*   Content must be easily updatable by non-technical staff via a CMS.
+
+### 2.5 Assumptions and Dependencies
+*   High-quality images and videos from past projects (e.g., Sweihan, Al Dafra, Sakkakah) will be provided.
+*   Company management (Syed Ibrahim Asif, Chittibabu Lakkum) will provide approved biographies and photos.
+*   The website will be hosted on a reliable, preferably green, hosting provider .
+
+## 3. Specific Requirements
+
+### 3.1 Functional Requirements
+
+#### 3.1.1 User Interface (UI) & User Experience (UX)
+The website design should incorporate modern trends for 2025, particularly those relevant to the corporate and renewable energy sectors . Key UI/UX principles include:
+*   **Minimalist and Clean Design:** A clutter-free interface that emphasizes content and professionalism .
+*   **Mobile-First Design:** The site must be fully responsive and provide an optimal experience on all device sizes .
+*   **Sustainable Web Design:** Implement practices like image compression and efficient coding to reduce the site's digital carbon footprint, aligning with the company's core business .
+*   **Clear Navigation:** Intuitive menu structure allowing users to find information within 1-2 clicks.
+*   **Compelling Visuals:** High-resolution images and potentially 3D elements or interactive project maps to showcase large-scale projects .
+*   **Clear Calls-to-Action (CTAs):** Strategically placed buttons (e.g., "Contact Us," "View Our Projects," "Request a Proposal") to guide user behavior .
+
+#### 3.1.2 Page Structure and Content
+The website shall include the following essential pages for a B2B solar EPC contractor :
+
+*   **Home Page:**
+    *   Hero section with a powerful headline and sub-headline communicating Fazna's value proposition as a regional EPC leader.
+    *   Brief company introduction and mission statement.
+    *   Key statistics or highlights (e.g., "2+ GW Installed," "Projects Across ME & India").
+    *   Featured project thumbnails.
+    *   Quick links to major sections (Projects, Services, About).
+    *   Contact CTA.
+
+*   **About Us:**
+    *   Company history and establishment (Founded 2022, Dubai).
+    *   Detailed "Our Mission" and "Our Values" (Team spirit, excellence, innovation, adaptability, integrity).
+    *   Company management profiles with photos and bios for Syed Ibrahim Asif (Managing Director) and Chittibabu Lakkum (Technical Director), highlighting their expertise in renewable energy development .
+    *   Display of ISO certifications (9001, 14001, 45001) with downloadable certificates or verification links.
+    *   Information about the parent group and subsidiary (Aye Totes Pvt Ltd, India).
+
+*   **Services:**
+    *   Detailed description of EPC services: Trackers, Modules, PV Tables, Robot Installation, Earthing & Alignment.
+    *   Breakdown of sectors: Ground-mounted, Rooftop, Industrial Generator & Storage, Temporary Power, Long-Term Leasing.
+    *   Explanation of the construction methodology (referencing the 10-step process from the PDF).
+    *   Showcase of technical capabilities, including manpower, machinery, tools, and site facilities (presented in an engaging, visual way, not just tables).
+
+*   **Projects / Portfolio:**
+    *   Dedicated section for major project references.
+    *   Case studies for key projects (Sweihan Zones 1&4, Sweihan Zone 3B, Saudi Sakkakah, Oman PDO Amin, Al Dafra PV2, DEWA VI, Khazna Data Centre) including:
+        *   Project name, location, and capacity (MW).
+        *   Scope of work performed by Fazna.
+        *   High-quality site photos and videos.
+        *   Client testimonials or appreciation letters (if available).
+        *   Challenges and solutions.
+    *   Separate section or filter for projects executed in India under "Sap Structures."
+
+*   **Resources / Downloads (Optional but Recommended):**
+    *   Downloadable company profile (PDF).
+    *   Brochures for specific services.
+    *   Technical specifications or whitepapers.
+
+*   **Contact Us:**
+    *   Contact form for general inquiries.
+    *   Direct contact information for Dubai (Mr. Syed Ibrahim Asif) and India (Mr. Chittibabu Lakkum) offices, including phone numbers and emails.
+    *   Interactive map showing the Dubai office location (Plot No. 119-0, Dubai Investment Park First).
+    *   Links to social media profiles (if applicable).
+
+*   **Footer:**
+    *   Sitemap links.
+    *   Legal information (Copyright, Privacy Policy, Terms of Use).
+    *   Reiteration of contact info and social links.
+
+### 3.2 Non-Functional Requirements
+
+*   **Performance:** The website must load within 3 seconds on average. Images and assets must be optimized .
+*   **Usability:** The interface must be intuitive and easy to navigate for users of varying technical skill levels .
+*   **Reliability:** The website must have an uptime of 99.9%.
+*   **Security:** The site must implement HTTPS, protect against common web vulnerabilities (e.g., XSS, SQL injection), and ensure contact form data is handled securely.
+*   **Maintainability:** The codebase must follow consistent coding standards and best practices . The CMS must allow authorized staff to easily update text, images, and project case studies.
+*   **Accessibility:** The website should comply with WCAG 2.1 AA standards to ensure accessibility for users with disabilities .
+
+## 4. Appendices
+
+*   **Appendix A: Sitemap Diagram**
+*   **Appendix B: Wireframes/Mockups (To be provided by the design team)**
+*   **Appendix C: List of Provided Assets (Images, Videos, Logos, Certificates)**
+*   **Appendix D: Glossary of Terms**
