@@ -27,27 +27,27 @@ export default function HeroSection() {
         <div className={`max-w-4xl mx-auto space-y-8 transition-all duration-1000 ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
         }`}>
-          <div className="flex flex-wrap justify-center gap-4 mb-8">
-            <Badge variant="outline" className="bg-background/10 backdrop-blur border-white/20 text-white text-sm px-4 py-2 font-medium">
+          <div className="flex flex-wrap justify-center gap-6 mb-12">
+            <Badge variant="outline" className="bg-white/15 backdrop-blur-md border-white/30 text-white text-sm px-5 py-3 font-semibold shadow-lg hover:bg-white/20 transition-all duration-300">
               <Zap className="w-4 h-4 mr-2" />
               2+ GW Successfully Delivered
             </Badge>
-            <Badge variant="outline" className="bg-background/10 backdrop-blur border-white/20 text-white text-sm px-4 py-2 font-medium">
+            <Badge variant="outline" className="bg-white/15 backdrop-blur-md border-white/30 text-white text-sm px-5 py-3 font-semibold shadow-lg hover:bg-white/20 transition-all duration-300">
               <Globe className="w-4 h-4 mr-2" />
               10+ Major Projects Completed
             </Badge>
-            <Badge variant="outline" className="bg-background/10 backdrop-blur border-white/20 text-white text-sm px-4 py-2 font-medium">
+            <Badge variant="outline" className="bg-white/15 backdrop-blur-md border-white/30 text-white text-sm px-5 py-3 font-semibold shadow-lg hover:bg-white/20 transition-all duration-300">
               <Award className="w-4 h-4 mr-2" />
               ISO 9001:2015 Certified
             </Badge>
           </div>
 
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-8">
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-white leading-tight mb-10 tracking-tight">
             Trusted EPC Partner for 
             <span className="text-secondary bg-gradient-to-r from-secondary to-yellow-400 bg-clip-text text-transparent"> Utility-Scale Solar</span> Excellence
           </h1>
 
-          <div className="max-w-4xl mx-auto space-y-6 mb-12">
+          <div className="max-w-5xl mx-auto space-y-8 mb-16">
             <p className="text-xl md:text-2xl text-white/95 leading-relaxed font-medium">
               From record-breaking gigawatt installations to cutting-edge renewable infrastructure, 
               we deliver engineering excellence that powers the future of clean energy.
@@ -59,10 +59,10 @@ export default function HeroSection() {
             </p>
           </div>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 pt-8">
             <Button 
               size="lg" 
-              className="text-lg px-8 py-6 bg-gradient-to-r from-primary to-blue-600 hover:from-primary/90 hover:to-blue-600/90 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 group"
+              className="text-lg px-10 py-6 bg-gradient-to-br from-primary via-primary to-blue-600 hover:from-primary/95 hover:via-primary/95 hover:to-blue-600/95 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-[1.02] group font-semibold border-0"
               data-testid="button-view-projects"
               onClick={() => {
                 const projectsSection = document.querySelector('[data-section="projects"]');
@@ -73,17 +73,17 @@ export default function HeroSection() {
                 }
               }}
             >
-              Explore Our Success Stories
+              View Projects
               <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
             </Button>
             <Button 
               size="lg" 
               variant="outline" 
-              className="text-lg px-8 py-6 bg-background/10 backdrop-blur border-white/20 text-white hover:bg-background/20 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+              className="text-lg px-10 py-6 bg-white/15 backdrop-blur-md border-2 border-white/30 text-white hover:bg-white/25 hover:border-white/40 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-[1.02] font-semibold"
               data-testid="button-request-proposal"
               onClick={() => window.location.href = '/contact'}
             >
-              Partner With Us Today
+              Let's Partner
             </Button>
           </div>
 

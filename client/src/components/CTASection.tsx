@@ -79,55 +79,55 @@ export default function CTASection() {
             </span>
           </div>
           
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6 leading-tight">
+          <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-foreground mb-8 leading-tight tracking-tight">
             Partner with the Region's
             <span className="text-primary"> Most Trusted Solar EPC</span>
           </h2>
           
-          <p className="text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed mb-8">
+          <p className="text-xl md:text-2xl text-muted-foreground max-w-5xl mx-auto leading-relaxed mb-10 font-medium">
             Join industry leaders who trust Fazna Solar Energy for their critical renewable energy infrastructure. 
             <strong>Over 2GW delivered</strong> across landmark projects like Sweihan and Al Dhafra with 
             <strong>zero safety incidents</strong> and performance ratios exceeding 85%.
           </p>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-20">
             <Button 
               size="lg"
-              className="text-lg px-8 py-6 bg-gradient-to-r from-primary to-blue-600 hover:from-primary/90 hover:to-blue-600/90 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 group"
+              className="text-lg px-10 py-6 bg-gradient-to-br from-primary via-primary to-blue-600 hover:from-primary/95 hover:via-primary/95 hover:to-blue-600/95 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-[1.02] group font-semibold border-0"
               data-testid="button-cta-contact"
               onClick={handleContactClick}
             >
               <Phone className="mr-2 h-5 w-5" />
-              Get Your Project Quote
+              Get Quote
               <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
             </Button>
             
             <Button 
               size="lg"
               variant="outline"
-              className="text-lg px-8 py-6 border-2 hover-elevate shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+              className="text-lg px-10 py-6 border-2 hover-elevate shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-[1.02] font-semibold backdrop-blur-sm"
               data-testid="button-cta-projects"
               onClick={handleProjectsClick}
             >
               <Globe className="mr-2 h-5 w-5" />
-              View Our Portfolio
+              Portfolio
             </Button>
             
             <Button 
               size="lg"
               variant="ghost"
-              className="text-lg px-8 py-6 hover-elevate transition-all duration-300"
+              className="text-lg px-10 py-6 hover-elevate transition-all duration-300 transform hover:scale-[1.02] font-semibold shadow-lg hover:shadow-xl"
               data-testid="button-cta-services"
               onClick={handleServicesClick}
             >
               <Calendar className="mr-2 h-5 w-5" />
-              Explore Services
+              Services
             </Button>
           </div>
         </div>
 
         {/* Achievements Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-20">
           {achievements.map((achievement, index) => (
             <Card key={index} className="text-center border-card-border hover-elevate transition-all duration-300">
               <CardContent className="p-6">
@@ -144,7 +144,7 @@ export default function CTASection() {
         </div>
 
         {/* Value Proposition Cards */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 mb-20">
           {/* Certifications & Standards */}
           <Card className="border-card-border">
             <CardContent className="p-8">
@@ -199,7 +199,7 @@ export default function CTASection() {
         </div>
 
         {/* Contact Information Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
           <Card className="border-card-border">
             <CardContent className="p-6 text-center">
               <div className="mb-4">
@@ -248,11 +248,11 @@ export default function CTASection() {
           </p>
           <Button 
             size="lg"
-            className="text-lg px-10 py-6 bg-gradient-to-r from-accent to-green-600 hover:from-accent/90 hover:to-green-600/90 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+            className="text-lg px-12 py-6 bg-gradient-to-br from-accent via-accent to-green-600 hover:from-accent/95 hover:via-accent/95 hover:to-green-600/95 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-[1.02] font-semibold border-0"
             data-testid="button-cta-final"
             onClick={handleContactClick}
           >
-            Start Your Solar Journey Today
+            Get Started
             <ArrowRight className="ml-2 h-5 w-5" />
           </Button>
         </div>
