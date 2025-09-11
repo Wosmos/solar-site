@@ -8,3 +8,7 @@ vite.config.ts.*
 replit.md
 .replit
 attached_assets
+next
+next/
+.next/
+.vscode

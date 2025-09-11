@@ -6,7 +6,8 @@ import { usePathname } from 'next/navigation'
 import { useTheme } from 'next-themes'
 import { Button } from '@/components/ui/button'
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
-import { Menu, Sun, Moon } from 'lucide-react'
+import { Badge } from '@/components/ui/badge'
+import { Menu, Sun, Moon, Home, Building2, Wrench, FolderOpen, Mail, Phone, MapPin, Award, Zap, Globe, ExternalLink } from 'lucide-react'
 
 export default function Header() {
   const pathname = usePathname()
@@ -14,11 +15,23 @@ export default function Header() {
   const [isOpen, setIsOpen] = useState(false)
 
   const navigation = [
-    { name: 'Home', href: '/' },
-    { name: 'About Us', href: '/about' },
-    { name: 'Services', href: '/services' },
-    { name: 'Projects', href: '/projects' },
-    { name: 'Contact', href: '/contact' },
+    { name: 'Home', href: '/', icon: Home },
+    { name: 'About Us', href: '/about', icon: Building2 },
+    { name: 'Services', href: '/services', icon: Wrench },
+    { name: 'Projects', href: '/projects', icon: FolderOpen },
+    { name: 'Contact', href: '/contact', icon: Mail },
+  ]
+
+  const companyStats = [
+    { label: '2+ GW', description: 'Capacity Delivered', icon: Zap },
+    { label: '10+', description: 'Major Projects', icon: Globe },
+    { label: 'ISO 9001:2015', description: 'Certified', icon: Award },
+  ]
+
+  const quickActions = [
+    { label: 'Request Quote', href: '/contact', primary: true },
+    { label: 'View Portfolio', href: '/projects' },
+    { label: 'Our Services', href: '/services' },
   ]
 
   const isActive = (href: string) => pathname === href
@@ -87,32 +100,114 @@ export default function Header() {
                 <Menu className="h-5 w-5" />
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-[300px] sm:w-[400px]">
-              <nav className="flex flex-col space-y-4 mt-8">
-                {navigation.map((item) => (
-                  <Link
-                    key={item.name}
-                    href={item.href}
-                    onClick={() => setIsOpen(false)}
-                    data-testid={`link-mobile-${item.name.toLowerCase().replace(' ', '-')}`}
-                    className={`text-base font-medium transition-colors hover:text-primary ${
-                      isActive(item.href)
-                        ? 'text-primary'
-                        : 'text-muted-foreground'
-                    }`}
-                  >
-                    {item.name}
-                  </Link>
-                ))}
-                <Link href="/contact" onClick={() => setIsOpen(false)}>
-                  <Button
-                    className="mt-6 w-full"
-                    data-testid="button-mobile-contact-cta"
-                  >
-                    Contact Us
-                  </Button>
-                </Link>
-              </nav>
+            <SheetContent side="right" className="w-[350px] sm:w-[420px] p-0">
+              <div className="flex flex-col h-full">
+                {/* Header */}
+                <div className="p-6 border-b bg-gradient-to-r from-primary/5 to-blue-50 dark:from-primary/10 dark:to-blue-950">
+                  <div className="flex items-center space-x-3 mb-4">
+                    <div className="h-10 w-10 rounded-lg bg-primary flex items-center justify-center">
+                      <span className="text-primary-foreground font-bold text-xl">F</span>
+                    </div>
+                    <div>
+                      <h2 className="font-bold text-lg">Fazna Solar</h2>
+                      <p className="text-sm text-muted-foreground">Energy LLC</p>
+                    </div>
+                  </div>
+                  <p className="text-sm text-muted-foreground">
+                    Leading EPC contractor for utility-scale solar projects
+                  </p>
+                </div>
+
+                {/* Navigation */}
+                <div className="flex-1 p-6 space-y-6">
+                  <nav className="space-y-2">
+                    <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-3">
+                      Navigation
+                    </h3>
+                    {navigation.map((item) => {
+                      const Icon = item.icon
+                      return (
+                        <Link
+                          key={item.name}
+                          href={item.href}
+                          onClick={() => setIsOpen(false)}
+                          data-testid={`link-mobile-${item.name.toLowerCase().replace(' ', '-')}`}
+                          className={`flex items-center space-x-3 p-3 rounded-lg transition-all duration-200 hover:bg-primary/5 group ${
+                            isActive(item.href)
+                              ? 'bg-primary/10 text-primary border border-primary/20'
+                              : 'text-muted-foreground hover:text-foreground'
+                          }`}
+                        >
+                          <Icon className={`h-5 w-5 ${isActive(item.href) ? 'text-primary' : 'text-muted-foreground group-hover:text-primary'}`} />
+                          <span className="font-medium">{item.name}</span>
+                        </Link>
+                      )
+                    })}
+                  </nav>
+
+                  {/* Company Stats */}
+                  <div className="space-y-3">
+                    <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider">
+                      Our Impact
+                    </h3>
+                    <div className="grid grid-cols-1 gap-3">
+                      {companyStats.map((stat, index) => {
+                        const Icon = stat.icon
+                        return (
+                          <div key={index} className="flex items-center space-x-3 p-3 bg-muted/50 rounded-lg">
+                            <div className="h-8 w-8 rounded-md bg-primary/10 flex items-center justify-center">
+                              <Icon className="h-4 w-4 text-primary" />
+                            </div>
+                            <div>
+                              <div className="font-bold text-sm">{stat.label}</div>
+                              <div className="text-xs text-muted-foreground">{stat.description}</div>
+                            </div>
+                          </div>
+                        )
+                      })}
+                    </div>
+                  </div>
+
+                  {/* Quick Actions */}
+                  <div className="space-y-3">
+                    <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider">
+                      Quick Actions
+                    </h3>
+                    <div className="space-y-2">
+                      {quickActions.map((action, index) => (
+                        <Link key={index} href={action.href} onClick={() => setIsOpen(false)}>
+                          <Button
+                            variant={action.primary ? "default" : "outline"}
+                            className="w-full justify-start"
+                            data-testid={`button-mobile-${action.label.toLowerCase().replace(' ', '-')}`}
+                          >
+                            {action.label}
+                            <ExternalLink className="ml-auto h-4 w-4" />
+                          </Button>
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                {/* Footer */}
+                <div className="p-6 border-t bg-muted/30">
+                  <div className="space-y-3">
+                    <div className="flex items-center space-x-2 text-sm text-muted-foreground">
+                      <MapPin className="h-4 w-4" />
+                      <span>UAE • India • Middle East</span>
+                    </div>
+                    <div className="flex items-center space-x-2 text-sm text-muted-foreground">
+                      <Phone className="h-4 w-4" />
+                      <span>+971 XX XXX XXXX</span>
+                    </div>
+                    <Badge variant="secondary" className="w-fit">
+                      <Award className="h-3 w-3 mr-1" />
+                      ISO 9001:2015 Certified
+                    </Badge>
+                  </div>
+                </div>
+              </div>
             </SheetContent>
           </Sheet>
         </div>
