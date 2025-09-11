@@ -1,9 +1,15 @@
+import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { ArrowRight, Zap, Globe, Award } from 'lucide-react';
+import { ArrowRight, Zap, Globe, Award, ChevronDown } from 'lucide-react';
 import solarFarmImage from '@assets/generated_images/Large_scale_solar_farm_89a08086.png';
 
 export default function HeroSection() {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    setIsVisible(true);
+  }, []);
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image with Overlay */}
@@ -18,7 +24,9 @@ export default function HeroSection() {
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 text-center">
-        <div className="max-w-4xl mx-auto space-y-8">
+        <div className={`max-w-4xl mx-auto space-y-8 transition-all duration-1000 ${
+          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+        }`}>
           <div className="flex flex-wrap justify-center gap-3 mb-6">
             <Badge variant="outline" className="bg-background/10 backdrop-blur border-white/20 text-white">
               <Zap className="w-3 h-3 mr-1" />
@@ -36,7 +44,7 @@ export default function HeroSection() {
 
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-tight">
             Leading EPC Contractor for
-            <span className="text-secondary"> Solar Energy</span> Projects
+            <span className="text-secondary bg-gradient-to-r from-secondary to-yellow-400 bg-clip-text text-transparent"> Solar Energy</span> Projects
           </h1>
 
           <p className="text-xl md:text-2xl text-white/90 leading-relaxed max-w-3xl mx-auto">
@@ -47,17 +55,17 @@ export default function HeroSection() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
             <Button 
               size="lg" 
-              className="text-lg px-8 py-6"
+              className="text-lg px-8 py-6 bg-gradient-to-r from-primary to-blue-600 hover:from-primary/90 hover:to-blue-600/90 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
               data-testid="button-view-projects"
               onClick={() => console.log('View projects clicked')}
             >
               View Our Projects
-              <ArrowRight className="ml-2 h-5 w-5" />
+              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
             </Button>
             <Button 
               size="lg" 
               variant="outline" 
-              className="text-lg px-8 py-6 bg-background/10 backdrop-blur border-white/20 text-white hover:bg-background/20"
+              className="text-lg px-8 py-6 bg-background/10 backdrop-blur border-white/20 text-white hover:bg-background/20 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
               data-testid="button-request-proposal"
               onClick={() => console.log('Request proposal clicked')}
             >
@@ -83,10 +91,13 @@ export default function HeroSection() {
         </div>
       </div>
 
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <div className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center">
-          <div className="w-1 h-3 bg-white/50 rounded-full mt-2"></div>
+      {/* Enhanced Scroll Indicator */}
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
+        <div className="flex flex-col items-center gap-2 animate-bounce cursor-pointer" onClick={() => {
+          window.scrollTo({ top: window.innerHeight, behavior: 'smooth' });
+        }}>
+          <span className="text-white/70 text-sm font-medium">Scroll to explore</span>
+          <ChevronDown className="h-6 w-6 text-white/50" />
         </div>
       </div>
     </section>

@@ -1,3 +1,4 @@
+import { useState, useEffect, useRef } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -96,8 +97,34 @@ const getStatusColor = (status: string) => {
 };
 
 export default function ProjectsSection() {
+  const [visibleProjects, setVisibleProjects] = useState<number[]>([]);
+  const sectionRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const projectIndex = parseInt(entry.target.getAttribute('data-index') || '0');
+            setVisibleProjects(prev => [...prev, projectIndex]);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    const projects = sectionRef.current?.querySelectorAll('[data-index]');
+    projects?.forEach(project => observer.observe(project));
+
+    return () => observer.disconnect();
+  }, []);
   return (
-    <section className="py-24 bg-muted/30">
+    <section ref={sectionRef} className="py-24 bg-muted/30 relative overflow-hidden">
+      {/* Background Pattern */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute top-0 -left-4 w-72 h-72 bg-primary rounded-full mix-blend-multiply filter blur-xl animate-pulse"></div>
+        <div className="absolute top-0 -right-4 w-72 h-72 bg-secondary rounded-full mix-blend-multiply filter blur-xl animate-pulse animation-delay-2000"></div>
+      </div>
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <div className="flex items-center justify-center gap-2 mb-4">
@@ -113,20 +140,27 @@ export default function ProjectsSection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {projects.map((project) => (
+        <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-8">
+          {projects.map((project, index) => (
             <Card 
               key={project.id}
-              className="group hover-elevate cursor-pointer overflow-hidden border-card-border"
+              data-index={index}
+              className={`group hover-elevate cursor-pointer overflow-hidden border-card-border transition-all duration-700 hover:shadow-2xl ${
+                visibleProjects.includes(index) 
+                  ? 'opacity-100 translate-y-0' 
+                  : 'opacity-0 translate-y-8'
+              }`}
+              style={{ transitionDelay: `${index * 150}ms` }}
               data-testid={`card-project-${project.id}`}
               onClick={() => console.log(`Project clicked: ${project.name}`)}
             >
-              <div className="aspect-video overflow-hidden">
+              <div className="aspect-video overflow-hidden relative">
                 <img
                   src={project.image}
-                  alt={project.name}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  alt={`${project.name} - ${project.description}`}
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
               <CardContent className="p-6">
                 <div className="flex items-start justify-between mb-4">

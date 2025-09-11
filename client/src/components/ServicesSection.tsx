@@ -1,3 +1,4 @@
+import { useState, useEffect, useRef } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { 
@@ -58,8 +59,31 @@ const sectors = [
 ];
 
 export default function ServicesSection() {
+  const [visibleCards, setVisibleCards] = useState<number[]>([]);
+  const sectionRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const cardIndex = parseInt(entry.target.getAttribute('data-index') || '0');
+            setVisibleCards(prev => [...prev, cardIndex]);
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+
+    const cards = sectionRef.current?.querySelectorAll('[data-index]');
+    cards?.forEach(card => observer.observe(card));
+
+    return () => observer.disconnect();
+  }, []);
   return (
-    <section className="py-24 bg-background">
+    <section ref={sectionRef} className="py-24 bg-background relative overflow-hidden">
+      {/* Background decoration */}
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent"></div>
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <div className="flex items-center justify-center gap-2 mb-4">
@@ -90,18 +114,24 @@ export default function ServicesSection() {
         </div>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
             <Card 
-              key={index} 
-              className="group hover-elevate cursor-pointer border-card-border"
+              key={index}
+              data-index={index}
+              className={`group hover-elevate cursor-pointer border-card-border transition-all duration-700 ${
+                visibleCards.includes(index) 
+                  ? 'opacity-100 translate-y-0' 
+                  : 'opacity-0 translate-y-8'
+              }`}
+              style={{ transitionDelay: `${index * 100}ms` }}
               data-testid={`card-service-${service.title.toLowerCase().replace(/[^a-z0-9]/g, '-')}`}
               onClick={() => console.log(`Service clicked: ${service.title}`)}
             >
               <CardContent className="p-6">
                 <div className="flex items-center gap-4 mb-4">
-                  <div className="h-12 w-12 bg-primary/10 rounded-lg flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                    <service.icon className="h-6 w-6 text-primary" />
+                  <div className="h-12 w-12 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-lg flex items-center justify-center group-hover:from-primary/20 group-hover:to-secondary/20 transition-all duration-300 group-hover:shadow-lg group-hover:scale-110">
+                    <service.icon className="h-6 w-6 text-primary group-hover:scale-110 transition-transform" />
                   </div>
                   <h3 className="text-xl font-semibold text-foreground">
                     {service.title}

@@ -195,12 +195,25 @@ export default function ContactSection() {
                 <Button 
                   type="submit" 
                   size="lg" 
-                  className="w-full"
+                  className={`w-full transition-all duration-300 ${
+                    isSubmitting 
+                      ? 'bg-muted cursor-not-allowed' 
+                      : 'bg-gradient-to-r from-primary to-blue-600 hover:from-primary/90 hover:to-blue-600/90 shadow-lg hover:shadow-xl transform hover:scale-105'
+                  }`}
                   disabled={isSubmitting}
                   data-testid="button-contact-submit"
                 >
-                  {isSubmitting ? 'Sending...' : 'Send Message'}
-                  <Send className="ml-2 h-4 w-4" />
+                  {isSubmitting ? (
+                    <>
+                      <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin mr-2"></div>
+                      Sending...
+                    </>
+                  ) : (
+                    <>
+                      Send Message
+                      <Send className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                    </>
+                  )}
                 </Button>
               </form>
             </CardContent>
