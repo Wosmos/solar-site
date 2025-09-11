@@ -18,26 +18,26 @@ const achievements = [
   {
     icon: Zap,
     value: '2+ GW',
-    label: 'Total Capacity Installed',
+    label: 'Successfully Delivered',
     color: 'text-secondary'
   },
   {
-    icon: Globe,
-    value: '5+',
-    label: 'Countries Served',
-    color: 'text-primary'
-  },
-  {
-    icon: Users,
-    value: '100+',
-    label: 'Team Members',
+    icon: Shield,
+    value: 'Zero',
+    label: 'Safety Incidents',
     color: 'text-accent'
   },
   {
     icon: Award,
     value: '10+',
-    label: 'Major Projects',
+    label: 'Landmark Projects',
     color: 'text-secondary'
+  },
+  {
+    icon: Users,
+    value: '1000+',
+    label: 'Expert Technicians',
+    color: 'text-primary'
   }
 ];
 
@@ -80,13 +80,14 @@ export default function CTASection() {
           </div>
           
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6 leading-tight">
-            Power Your Future with
-            <span className="text-primary"> Solar Excellence</span>
+            Partner with the Region's
+            <span className="text-primary"> Most Trusted Solar EPC</span>
           </h2>
           
           <p className="text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed mb-8">
-            Join leading organizations who trust Fazna Solar Energy for their renewable energy infrastructure. 
-            From concept to commissioning, we deliver world-class EPC solutions.
+            Join industry leaders who trust Fazna Solar Energy for their critical renewable energy infrastructure. 
+            <strong>Over 2GW delivered</strong> across landmark projects like Sweihan and Al Dhafra with 
+            <strong>zero safety incidents</strong> and performance ratios exceeding 85%.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
@@ -155,7 +156,8 @@ export default function CTASection() {
               </div>
               
               <p className="text-muted-foreground mb-6 leading-relaxed">
-                Our commitment to quality, environmental responsibility, and safety is validated through internationally recognized certifications.
+                <strong>Internationally Recognized Standards:</strong> Our commitment to excellence is validated through 
+                comprehensive ISO certifications, ensuring every project meets the highest benchmarks for quality, safety, and environmental responsibility.
               </p>
               
               <div className="space-y-3">
@@ -180,7 +182,8 @@ export default function CTASection() {
               </div>
               
               <p className="text-muted-foreground mb-6 leading-relaxed">
-                Proven track record delivering some of the world's largest and most complex solar installations.
+                <strong>Industry-Defining Portfolio:</strong> From Sweihan (1.18GW) to Al Dhafra (2GW), we've successfully 
+                delivered some of the world's largest single-site solar installations, setting new benchmarks for performance and reliability.
               </p>
               
               <div className="space-y-3">

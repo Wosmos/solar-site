@@ -27,30 +27,37 @@ export default function HeroSection() {
         <div className={`max-w-4xl mx-auto space-y-8 transition-all duration-1000 ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
         }`}>
-          <div className="flex flex-wrap justify-center gap-3 mb-6">
-            <Badge variant="outline" className="bg-background/10 backdrop-blur border-white/20 text-white">
-              <Zap className="w-3 h-3 mr-1" />
-              2+ GW Installed
+          <div className="flex flex-wrap justify-center gap-4 mb-8">
+            <Badge variant="outline" className="bg-background/10 backdrop-blur border-white/20 text-white text-sm px-4 py-2 font-medium">
+              <Zap className="w-4 h-4 mr-2" />
+              2+ GW Successfully Delivered
             </Badge>
-            <Badge variant="outline" className="bg-background/10 backdrop-blur border-white/20 text-white">
-              <Globe className="w-3 h-3 mr-1" />
-              UAE & India Operations
+            <Badge variant="outline" className="bg-background/10 backdrop-blur border-white/20 text-white text-sm px-4 py-2 font-medium">
+              <Globe className="w-4 h-4 mr-2" />
+              10+ Major Projects Completed
             </Badge>
-            <Badge variant="outline" className="bg-background/10 backdrop-blur border-white/20 text-white">
-              <Award className="w-3 h-3 mr-1" />
-              ISO Certified
+            <Badge variant="outline" className="bg-background/10 backdrop-blur border-white/20 text-white text-sm px-4 py-2 font-medium">
+              <Award className="w-4 h-4 mr-2" />
+              ISO 9001:2015 Certified
             </Badge>
           </div>
 
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-tight">
-            Leading EPC Contractor for
-            <span className="text-secondary bg-gradient-to-r from-secondary to-yellow-400 bg-clip-text text-transparent"> Solar Energy</span> Projects
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-8">
+            Trusted EPC Partner for 
+            <span className="text-secondary bg-gradient-to-r from-secondary to-yellow-400 bg-clip-text text-transparent"> Utility-Scale Solar</span> Excellence
           </h1>
 
-          <p className="text-xl md:text-2xl text-white/90 leading-relaxed max-w-3xl mx-auto">
-            Engineering excellence in utility-scale solar installations across the Middle East and India. 
-            Delivering world-class renewable energy infrastructure with proven expertise.
-          </p>
+          <div className="max-w-4xl mx-auto space-y-6 mb-12">
+            <p className="text-xl md:text-2xl text-white/95 leading-relaxed font-medium">
+              From record-breaking gigawatt installations to cutting-edge renewable infrastructure, 
+              we deliver engineering excellence that powers the future of clean energy.
+            </p>
+            <p className="text-lg md:text-xl text-white/85 leading-relaxed">
+              <strong>Proven Track Record:</strong> Successfully completed landmark projects including 
+              Sweihan Solar (1.18 GW) and Al Dhafra PV2 (2 GW) with zero safety incidents and 
+              industry-leading efficiency standards across the Middle East and India.
+            </p>
+          </div>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
             <Button 
@@ -66,7 +73,7 @@ export default function HeroSection() {
                 }
               }}
             >
-              View Our Projects
+              Explore Our Success Stories
               <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
             </Button>
             <Button 
@@ -76,23 +83,27 @@ export default function HeroSection() {
               data-testid="button-request-proposal"
               onClick={() => window.location.href = '/contact'}
             >
-              Request a Proposal
+              Partner With Us Today
             </Button>
           </div>
 
-          {/* Key Stats */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pt-16">
-            <div className="text-center" data-testid="stat-projects">
-              <div className="text-4xl md:text-5xl font-bold text-secondary mb-2">10+</div>
-              <div className="text-white/80 text-lg">Major Projects Completed</div>
-            </div>
+          {/* Key Performance Metrics */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 pt-16">
             <div className="text-center" data-testid="stat-capacity">
-              <div className="text-4xl md:text-5xl font-bold text-secondary mb-2">2+ GW</div>
-              <div className="text-white/80 text-lg">Total Capacity Installed</div>
+              <div className="text-3xl md:text-4xl lg:text-5xl font-bold text-secondary mb-3">2+ GW</div>
+              <div className="text-white/85 text-base lg:text-lg font-medium">Total Capacity Delivered</div>
             </div>
-            <div className="text-center" data-testid="stat-countries">
-              <div className="text-4xl md:text-5xl font-bold text-secondary mb-2">5+</div>
-              <div className="text-white/80 text-lg">Countries Served</div>
+            <div className="text-center" data-testid="stat-projects">
+              <div className="text-3xl md:text-4xl lg:text-5xl font-bold text-secondary mb-3">10+</div>
+              <div className="text-white/85 text-base lg:text-lg font-medium">Major Projects Completed</div>
+            </div>
+            <div className="text-center" data-testid="stat-safety">
+              <div className="text-3xl md:text-4xl lg:text-5xl font-bold text-secondary mb-3">0</div>
+              <div className="text-white/85 text-base lg:text-lg font-medium">Lost Time Incidents</div>
+            </div>
+            <div className="text-center" data-testid="stat-experience">
+              <div className="text-3xl md:text-4xl lg:text-5xl font-bold text-secondary mb-3">3+</div>
+              <div className="text-white/85 text-base lg:text-lg font-medium">Years of Excellence</div>
             </div>
           </div>
         </div>

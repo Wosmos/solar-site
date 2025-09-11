@@ -743,12 +743,19 @@ export default function ProjectsSection() {
             <span className="text-sm font-medium text-primary uppercase tracking-wider">Our Portfolio</span>
           </div>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">
-            Major Project References
+            Landmark Solar Projects That Define Industry Excellence
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Proven track record of delivering world-class solar installations across the Middle East and beyond.
-            Each project showcases our commitment to engineering excellence and operational efficiency.
-          </p>
+          <div className="max-w-4xl mx-auto space-y-4 mb-8">
+            <p className="text-xl text-muted-foreground leading-relaxed font-medium">
+              From record-breaking gigawatt installations to pioneering engineering solutions, our portfolio 
+              showcases the world's most ambitious solar projects successfully delivered on time and within budget.
+            </p>
+            <p className="text-lg text-muted-foreground leading-relaxed">
+              <strong>Track Record:</strong> Over 2GW of utility-scale capacity delivered across 10+ major projects, 
+              including two of the world's largest single-site solar installations, with zero safety incidents and 
+              performance ratios consistently exceeding industry benchmarks.
+            </p>
+          </div>
         </div>
 
         {/* Portfolio Statistics Dashboard */}

@@ -466,21 +466,25 @@ export default function ServicesSection() {
               <span className="text-sm font-medium text-primary uppercase tracking-wider">EPC Excellence</span>
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">
-              Comprehensive Solar EPC Solutions
+              World-Class Solar EPC Excellence
             </h1>
             <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed mb-8">
-              From 50MW utility-scale installations to multi-gigawatt solar farms, we deliver world-class engineering, 
-              procurement, and construction services with proven excellence across 15+ countries.
+              Delivering record-breaking solar installations from 50MW to multi-gigawatt scale across the Middle East and India. 
+              Our proven track record includes landmark projects like Sweihan (1.18GW) and Al Dhafra (2GW) with 
+              zero safety incidents and industry-leading performance ratios.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <Badge variant="secondary" className="text-base px-6 py-2">
-                2GW+ Annual Capacity
+              <Badge variant="secondary" className="text-base px-6 py-2 font-medium">
+                2GW+ Successfully Delivered
               </Badge>
-              <Badge variant="secondary" className="text-base px-6 py-2">
-                ISO 9001:2015 Certified
+              <Badge variant="secondary" className="text-base px-6 py-2 font-medium">
+                ISO 9001:2015 Excellence
               </Badge>
-              <Badge variant="secondary" className="text-base px-6 py-2">
-                1000+ Skilled Technicians
+              <Badge variant="secondary" className="text-base px-6 py-2 font-medium">
+                Zero Lost-Time Incidents
+              </Badge>
+              <Badge variant="secondary" className="text-base px-6 py-2 font-medium">
+                1000+ Expert Technicians
               </Badge>
             </div>
           </div>
@@ -507,10 +511,12 @@ export default function ServicesSection() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
-              Core EPC Services
+              Proven EPC Excellence Across Every Phase
             </h2>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              Industry-leading expertise across all aspects of solar project delivery
+            <p className="text-lg text-muted-foreground max-w-4xl mx-auto leading-relaxed">
+              From advanced robotic installations to precision engineering, our comprehensive EPC services deliver 
+              measurable results. <strong>Average performance ratio exceeding 85%</strong> with industry-leading 
+              installation speeds and uncompromising safety standards.
             </p>
           </div>
 
