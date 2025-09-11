@@ -8,10 +8,10 @@ channel = "stable-24_05"
 [deployment]
 deploymentTarget = "static"
 build = ["npm", "run", "build"]
-publicDir = "dist"
+publicDir = "out"
 
 [[ports]]
-localPort = 5173
+localPort = 3000
 externalPort = 80
 
 [workflows]
@@ -33,4 +33,4 @@ author = "agent"
 [[workflows.workflow.tasks]]
 task = "shell.exec"
 args = "npm run dev"
-waitForPort = 5173
+waitForPort = 3000
