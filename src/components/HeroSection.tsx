@@ -13,9 +13,17 @@ export default function HeroSection() {
   }, []);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-blue-900 via-blue-800 to-blue-600">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Background Image */}
+      <div
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: "url('/images/Large_scale_solar_farm_89a08086.png')",
+        }}
+      ></div>
+
       {/* Background Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-black/20 to-transparent"></div>
+      <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-black/30"></div>
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-6 text-center max-w-5xl">
@@ -35,7 +43,7 @@ export default function HeroSection() {
 
           {/* Major Heading */}
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-tight">
-            Engineering Tomorrow’s 
+            Engineering Tomorrow’s
             <span className="mx-1 bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent ">
               Clean Energy
             </span>
@@ -43,14 +51,15 @@ export default function HeroSection() {
 
           {/* Descriptive Text */}
           <p className="text-sm md:text-lg text-white/70 max-w-2xl mx-auto leading-relaxed">
-            Delivering utility-scale solar excellence across the Middle East and India with zero safety incidents and ISO-certified precision.
+            Delivering utility-scale solar excellence across the Middle East and
+            India with zero safety incidents and ISO-certified precision.
           </p>
 
           {/* Single CTA Button */}
           <div className="-pt-4">
             <Button
               size="lg"
-              className="rounded-full text-lg px-6 py-3 bg-gradient-to-r from-primary via-blue-600 to-blue-700 hover:from-primary/90 hover:via-blue-600/90 hover:to-blue-700/90 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 group font-semibold"
+              className="rounded-full text-lg px-6 py-3 bg-gradient-to-r from-primary via-blue-600/30 to-blue-700/40 hover:from-primary/90 hover:via-blue-600/90 hover:to-blue-700/90 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 group font-semibold"
               onClick={() => {
                 const projectsSection = document.querySelector(
                   '[data-section="projects"]'

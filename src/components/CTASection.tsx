@@ -2,17 +2,10 @@
 
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
 import { 
-  ArrowRight, 
   Zap, 
   Award, 
-  Globe, 
   Users, 
-  CheckCircle,
-  Phone,
-  Mail,
-  Calendar,
   Shield,
   FileCheck
 } from 'lucide-react';
@@ -44,31 +37,7 @@ const achievements = [
   }
 ];
 
-const certifications = [
-  'ISO 9001:2015 Quality Management',
-  'ISO 14001:2015 Environmental Management',
-  'ISO 45001:2019 Health & Safety Management'
-];
-
-const keyProjects = [
-  'Sweihan Solar Project - 1.18 GW',
-  'Al Dafra PV2 - 2 GW',
-  'DEWA VI Solar Park',
-  'Sakkakah Solar Complex'
-];
-
 export default function CTASection() {
-  const handleContactClick = () => {
-    window.location.href = '/contact';
-  };
-
-  const handleProjectsClick = () => {
-    window.location.href = '/projects';
-  };
-
-  const handleServicesClick = () => {
-    window.location.href = '/services';
-  };
 
   return (
     <section data-section="cta" className="py-24 bg-gradient-to-br from-primary/5 via-background to-secondary/5">
@@ -106,6 +75,7 @@ export default function CTASection() {
               variant="outline" 
               className="bg-background/10 border-background/20 text-primary-foreground hover:bg-background/20"
               data-testid="button-contact-services"
+              onClick={() => window.location.href = '/contact'}
             >
               <Users className="h-5 w-5 mr-2" />
               Contact Our Team
@@ -115,6 +85,7 @@ export default function CTASection() {
               variant="outline"
               className="bg-background/10 border-background/20 text-primary-foreground hover:bg-background/20"
               data-testid="button-project-discussion"
+              onClick={() => window.location.href = '/projects'}
             >
               <FileCheck className="h-5 w-5 mr-2" />
               Discuss Your Project

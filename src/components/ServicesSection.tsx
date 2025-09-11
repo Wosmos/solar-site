@@ -336,14 +336,14 @@ const projectHighlights = [
     achievement: 'Record-low LCOE achievement',
     technology: 'Advanced tracking systems'
   },
-  {
-    name: 'Sakkakah Solar',
-    capacity: '300MW',
-    location: 'Saudi Arabia',
-    role: 'INC Partner',
-    achievement: 'Desert installation excellence',
-    technology: 'Robust desert-grade design'
-  },
+  // {
+  //   name: 'Sakkakah Solar',
+  //   capacity: '300MW',
+  //   location: 'Saudi Arabia',
+  //   role: 'INC Partner',
+  //   achievement: 'Desert installation excellence',
+  //   technology: 'Robust desert-grade design'
+  // },
   {
     name: 'DEWA Phase VI',
     capacity: '900MW',
@@ -508,7 +508,7 @@ export default function ServicesSection() {
       </section>
 
       {/* Core Services */}
-      <section className="py-24 bg-background">
+      <section className=" bg-background">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
@@ -521,7 +521,7 @@ export default function ServicesSection() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {coreServices.map((service, index) => (
               <Card 
                 key={index}
@@ -715,7 +715,7 @@ export default function ServicesSection() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {projectHighlights.map((project, index) => (
               <Card key={index} className="hover-elevate">
                 <CardContent className="p-6">
@@ -759,7 +759,7 @@ export default function ServicesSection() {
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
               Structured approach ensuring consistent quality and timely delivery across all projects
             </p>
-          </div>
+          </div>public/images
 
           <div className="relative">
             <div className="hidden lg:block absolute top-1/2 left-0 right-0 h-px bg-border transform -translate-y-1/2"></div>

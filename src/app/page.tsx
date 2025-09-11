@@ -7,7 +7,7 @@ import HeroSection from '@/components/HeroSection'
 import AboutSection from '@/components/AboutSection'
 import ServicesSection from '@/components/ServicesSection'
 import ProjectsSection from '@/components/ProjectsSection'
-import ContactSection from '@/components/ContactSection'
+
 import CTASection from '@/components/CTASection'
 
 export const metadata: Metadata = {
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     siteName: 'Fazna Solar Energy LLC',
     images: [
       {
-        url: '/og-image.jpg',
+        url: '/images/Large_scale_solar_farm_89a08086.png',
         width: 1200,
         height: 630,
         alt: 'Fazna Solar Energy LLC',
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Fazna Solar Energy LLC - Premier INC Solar Contractor',
     description: 'Leading INC contractor specializing in utility-scale solar installations across the Middle East and India.',
-    images: ['/og-image.jpg'],
+    images: ['/images/Large_scale_solar_farm_89a08086.png'],
   },
 }
 
@@ -46,7 +46,7 @@ export default function HomePage() {
         <HeroSection />
         <AboutSection />
         <ServicesSection />
-        <ProjectsSection />
+        {/* <ProjectsSection /> */}
         <CTASection />
         {/* <ContactSection /> */}
       </main>

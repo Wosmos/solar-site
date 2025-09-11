@@ -2,7 +2,7 @@
 
 import Image from 'next/image'
 import { Card, CardContent } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
+
 import { Button } from '@/components/ui/button';
 import { 
   Users, 
@@ -50,7 +50,6 @@ const certifications = [
   { name: 'ISO 45001:2019', description: 'Occupational Health & Safety Management' }
 ];
 
-// todo: remove mock functionality - replace with real management data
 const management = [
   {
     name: 'Syed Ibrahim Asif',
@@ -58,18 +57,18 @@ const management = [
     location: 'Dubai, UAE',
     description: 'Visionary leader with 15+ years expertise in renewable energy development across Asia, Middle East, and Africa. Successfully led the delivery of 2GW+ solar capacity including landmark projects like Sweihan and Al Dhafra. Specialized in project finance structuring, strategic partnerships, and large-scale renewable energy development.',
     achievements: ['2GW+ Project Portfolio', 'Zero Safety Incidents', 'ISO Certified Operations'],
-    image: '/images/placeholder-executive.jpg',
+    image: '/images/Executive_headshot_portrait_9ee1d9a1.png',
     contact: '+971 527822747'
   },
-  {
-    name: 'Chittibabu Lakkum',
-    title: 'Technical Director',
-    location: 'India Operations',
-    description: 'Distinguished technical expert with 20+ years in utility-scale solar INC operations. Led technical delivery of multiple gigawatt-scale projects with industry-leading performance ratios. Specialized in advanced installation methodologies, quality control systems, and operational excellence across desert and challenging environments.',
-    achievements: ['20+ Years Experience', '1GW+ Technical Delivery', 'Advanced Installation Systems'],
-    image: '/images/placeholder-technical.jpg',
-    contact: '+91 7981505254'
-  }
+  // {
+  //   name: 'Chittibabu Lakkum',
+  //   title: 'Technical Director',
+  //   location: 'India Operations',
+  //   description: 'Distinguished technical expert with 20+ years in utility-scale solar INC operations. Led technical delivery of multiple gigawatt-scale projects with industry-leading performance ratios. Specialized in advanced installation methodologies, quality control systems, and operational excellence across desert and challenging environments.',
+  //   achievements: ['20+ Years Experience', '1GW+ Technical Delivery', 'Advanced Installation Systems'],
+  //   image: '/images/Technical_director_portrait_5fff9ddd.png',
+  //   contact: '+91 7981505254'
+  // }
 ];
 
 export default function AboutSection() {
@@ -87,7 +86,7 @@ export default function AboutSection() {
           </h2>
           <div className="max-w-4xl mx-auto space-y-6 text-lg text-muted-foreground leading-relaxed">
             <p className="font-medium text-xl">
-              Since 2022, Fazna Solar Energy LLC has rapidly emerged as the region&apos;s most trusted INC contractor, 
+              Fazna Solar Energy LLC has rapidly emerged as the region&apos;s most trusted INC contractor, 
               delivering over 2GW of utility-scale solar capacity across landmark projects including Sweihan (1.18GW) 
               and Al Dhafra (2GW) with zero safety incidents and industry-leading performance ratios.
             </p>
@@ -118,15 +117,15 @@ export default function AboutSection() {
               </ul>
             </div>
             
-            <div className="aspect-video overflow-hidden rounded-lg">
+            {/* <div className="aspect-video overflow-hidden rounded-lg">
               <Image
-                src="/images/placeholder-office.jpg"
+                src="/images/Dubai_office_building_76cf6c18.png"
                 alt="Fazna Solar Energy Dubai Office"
                 width={600}
                 height={400}
                 className="w-full h-full object-cover"
               />
-            </div>
+            </div> */}
           </div>
           
           <div>
