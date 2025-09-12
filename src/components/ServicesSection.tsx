@@ -265,7 +265,7 @@ const premiumServices = [
     ]
   },
   {
-    icon: Headphones,
+    icon:  BarChart3,
     title: 'Project Management Office',
     category: 'Project Delivery',
     description: 'Dedicated PMO services with advanced project controls, risk management, stakeholder coordination, and integrated delivery methodologies.',

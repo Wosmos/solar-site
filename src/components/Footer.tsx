@@ -47,7 +47,7 @@ export default function Footer() {
               <div className="h-16 w-16  rounded-md flex items-center justify-center">
             <Image
                 src="/images/fazna-solar-logo.png"
-                alt="Fazna Solar Energy Dubai Office"
+                alt="Fazna Solar Energy Office"
                 width={600}
                 height={400}
                 className="w-full h-full object-cover"
@@ -129,7 +129,7 @@ export default function Footer() {
             </h4>
             <div className="space-y-4">
               <div>
-                <p className="text-sm font-medium text-card-foreground mb-1">Dubai Office</p>
+                <p className="text-sm font-medium text-card-foreground mb-1">Office</p>
                 <p className="text-xs text-muted-foreground mb-2">
                   P.O Box - 126830
                 </p>

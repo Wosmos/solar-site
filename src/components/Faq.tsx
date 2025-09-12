@@ -44,7 +44,7 @@ const faqData = [
   {
     id: 6,
     question: "How can I contact Fazna Solar for project inquiries?",
-    answer: "You can reach us through our Dubai office (+971 527822747, info@faznasolar.com) or our India subsidiary AYE TOTES PVT LTD (+91 7981505254, cb@faznasolar.com). We're ready to discuss your renewable energy projects.",
+    answer: "You can reach us through our Office (+971 527822747, info@faznasolar.com) or our India subsidiary AYE TOTES PVT LTD (+91 7981505254, cb@faznasolar.com). We're ready to discuss your renewable energy projects.",
     icon: <Mail className="w-5 h-5" />,
     category: "contact"
   },

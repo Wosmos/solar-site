@@ -19,7 +19,7 @@ import {
 
 const offices = [
   {
-    location: 'Dubai Office',
+    location: 'Office',
     country: 'United Arab Emirates',
     address: 'P.O Box - 126830',
     contact: {

@@ -120,7 +120,7 @@ export default function AboutSection() {
             {/* <div className="aspect-video overflow-hidden rounded-lg">
               <Image
                 src="/images/Dubai_office_building_76cf6c18.png"
-                alt="Fazna Solar Energy Dubai Office"
+                alt="Fazna Solar Energy Office"
                 width={600}
                 height={400}
                 className="w-full h-full object-cover"
