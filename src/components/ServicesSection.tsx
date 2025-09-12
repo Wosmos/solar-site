@@ -51,7 +51,7 @@ const coreServices = [
       'Precision alignment systems'
     ],
     technicalSpecs: [
-      'Installation capacity: 500+ MW annually',
+      'Installation capacity: 1+ GW annually',
       'Tracking accuracy: ±0.5° tolerance',
       'Foundation depth: Up to 3.5m',
       'Wind resistance: 150+ km/h design'
@@ -78,7 +78,7 @@ const coreServices = [
       'Performance validation systems'
     ],
     technicalSpecs: [
-      'Installation rate: 1000+ modules/day',
+      'Installation rate: 7000+ modules/day',
       'Module power range: 400W-700W',
       'Accuracy tolerance: ±2mm',
       'Quality score: >99.5% first-pass rate'
