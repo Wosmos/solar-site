@@ -106,7 +106,7 @@ src/
 Create a `.env.local` file:
 
 ```env
-NEXT_PUBLIC_SITE_URL=https://fazna-solar.com
+NEXT_PUBLIC_SITE_URL=https://faznasolar.com
 ```
 
 ### Image Optimization

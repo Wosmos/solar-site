@@ -36,14 +36,14 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL('https://fazna-solar.com'),
+  metadataBase: new URL('https://faznasolar.com'),
   alternates: {
     canonical: '/',
   },
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://fazna-solar.com',
+    url: 'https://faznasolar.com',
     siteName: 'Fazna Solar Energy LLC',
     title: 'Fazna Solar Energy LLC - Premier INC Solar Contractor',
     description: 'Leading INC contractor specializing in utility-scale solar installations across the Middle East and India.',

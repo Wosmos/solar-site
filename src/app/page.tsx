@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Fazna Solar Energy LLC - Premier INC Solar Contractor',
     description: 'Leading INC contractor specializing in utility-scale solar installations across the Middle East and India.',
-    url: 'https://fazna-solar.com',
+    url: 'https://faznasolar.com',
     siteName: 'Fazna Solar Energy LLC',
     images: [
       {
