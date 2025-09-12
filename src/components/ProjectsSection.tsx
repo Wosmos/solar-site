@@ -33,7 +33,8 @@ import {
   Lightbulb,
   Truck,
   Factory,
-  X
+  X,
+  Coins
 } from 'lucide-react';
 // Images will be added later - using placeholders for now
 
@@ -774,9 +775,13 @@ export default function ProjectsSection() {
           <Card className="text-center">
             <CardContent className="p-6">
               <div className="flex items-center justify-center mb-2">
-                <DollarSign className="h-8 w-8 text-secondary" />
+                <Coins className="h-8 w-8 text-secondary" />
               </div>
-              <div className="text-3xl font-bold text-foreground mb-1">${(totalValue / 1000).toFixed(1)}B</div>
+              {/* <div className=""></div> */}
+              
+              <div className="text-3xl font-bold text-foreground mb-1">
+                
+                {(totalValue / 1000).toFixed(1)}M</div>
               <div className="text-sm text-muted-foreground">Total Project Value</div>
             </CardContent>
           </Card>

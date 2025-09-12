@@ -25,16 +25,16 @@ const achievements = [
   },
   {
     icon: Award,
-    value: '10+',
+    value: '5+',
     label: 'Landmark Projects',
     color: 'text-secondary'
   },
-  {
-    icon: Users,
-    value: '1000+',
-    label: 'Expert Technicians',
-    color: 'text-primary'
-  }
+  // {
+  //   icon: Users,
+  //   value: '1000+',
+  //   label: 'Expert Technicians',
+  //   color: 'text-primary'
+  // }
 ];
 
 export default function CTASection() {
@@ -45,7 +45,7 @@ export default function CTASection() {
 
 
         {/* Achievements Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 ">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 ">
           {achievements.map((achievement, index) => (
             <Card key={index} className="text-center border-card-border hover-elevate transition-all duration-300">
               <CardContent className="p-6">

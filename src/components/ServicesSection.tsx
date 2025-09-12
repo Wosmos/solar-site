@@ -23,8 +23,6 @@ import {
   BarChart3,
   Monitor,
   Lightbulb,
-  FileCheck,
-  Headphones,
   TrendingUp,
   Layers,
   Network,
@@ -312,7 +310,7 @@ const technicalCapabilities = [
     metrics: [
       { label: 'UAE Operations', value: 'Dubai HQ', description: 'Primary operations base' },
       { label: 'Regional Presence', value: 'GCC + India', description: 'Multi-country operations' },
-      { label: 'Project Experience', value: '15+ Countries', description: 'Global project portfolio' },
+      { label: 'Project Experience', value: '7+ Countries', description: 'Global project portfolio' },
       { label: 'Local Content', value: '40%+', description: 'Regional value addition' }
     ]
   }
