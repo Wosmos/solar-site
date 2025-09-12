@@ -41,8 +41,8 @@ export default function Header() {
   }
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 transition-all duration-300">
-      <div className="container mx-auto flex h-16 items-center justify-between px-4">
+    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 transition-all duration-300 py-2 shadow-md">
+      <div className="container mx-auto flex h-16 py-2 items-center justify-between px-4">
         <Link href="/" data-testid="link-home-logo">
           <div className="flex items-center space-x-3">
             <div className="h-16 w-16  rounded-md flex items-center justify-center">

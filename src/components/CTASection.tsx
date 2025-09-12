@@ -60,41 +60,7 @@ export default function CTASection() {
             </Card>
           ))}
         </div>
-    {/* Call to Action */}
-      <section className="rounded-md mt-6 mb-2 py-20 bg-gradient-to-r from-primary via-primary/90 to-secondary text-white ">
-        <div className="container mx-auto px-4 text-center ">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 ">
-            Ready to Start Your Solar Project?
-          </h2>
-          <p className="text-xl mb-8 max-w-2xl mx-auto opacity-90">
-            Partner with Fazna Solar Energy for world-class INC delivery and proven expertise across utility-scale solar installations.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button 
-              size="lg" 
-              variant="outline" 
-              className="bg-background/10 border-background/20 text-primary-foreground hover:bg-background/20"
-              data-testid="button-contact-services"
-              onClick={() => window.location.href = '/contact'}
-            >
-              <Users className="h-5 w-5 mr-2" />
-              Contact Our Team
-            </Button>
-            <Button 
-              size="lg" 
-              variant="outline"
-              className="bg-background/10 border-background/20 text-primary-foreground hover:bg-background/20"
-              data-testid="button-project-discussion"
-              onClick={() => window.location.href = '/projects'}
-            >
-              <FileCheck className="h-5 w-5 mr-2" />
-              Discuss Your Project
-            </Button>
-          </div>
-        </div>
-      </section>
 
-        
       </div>
     </section>
   );

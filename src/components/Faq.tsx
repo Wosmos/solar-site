@@ -1,7 +1,8 @@
 'use client'
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronDown, Sun, Zap, Users, Award, Globe, Mail, Phone, Shield, Lightbulb, Leaf } from 'lucide-react';
+import { ChevronDown, Sun, Zap, Users, Award, Globe, Mail, Phone, Shield, Lightbulb, Leaf, FileCheck } from 'lucide-react';
+import { Button } from './ui/button';
 
 // FAQ Data Array
 const faqData = [
@@ -204,44 +205,39 @@ const FaznaFAQ = () => {
           )}
         </motion.div>
 
-        {/* Contact CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.8 }}
-          className="mt-20 text-center"
-        >
-          <div className="bg-card rounded-2xl p-10 shadow-lg border border-card-border bg-gradient-to-br from-card to-card/80">
-            <div className="max-w-3xl mx-auto">
-              <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
-                Still have questions?
-              </h3>
-              <p className="text-muted-foreground mb-8 text-lg">
-                Our renewable energy experts are ready to provide personalized consultation for your specific needs.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-5 justify-center">
-                <motion.a
-                  href="mailto:info@faznasolar.com"
-                  className="inline-flex items-center justify-center space-x-2 bg-primary text-primary-foreground px-8 py-4 rounded-xl font-medium hover:bg-primary/90 transition-all shadow-md"
-                  whileHover={{ scale: 1.03, boxShadow: "0 10px 25px -5px rgba(59, 130, 246, 0.5)" }}
-                  whileTap={{ scale: 0.97 }}
-                >
-                  <Mail className="w-5 h-5 mr-2" />
-                  <span>Email Us</span>
-                </motion.a>
-                <motion.a
-                  href="tel:+971527822747"
-                  className="inline-flex items-center justify-center space-x-2 border border-input bg-background text-foreground px-8 py-4 rounded-xl font-medium hover:bg-muted transition-all shadow-sm"
-                  whileHover={{ scale: 1.03 }}
-                  whileTap={{ scale: 0.97 }}
-                >
-                  <Phone className="w-5 h-5 mr-2" />
-                  <span>Call Us</span>
-                </motion.a>
-              </div>
-            </div>
+        {/* Call to Action */}
+      <section className="rounded-3xl mt-6 py-16 bg-gradient-to-r from-primary via-primary/90 to-secondary text-white ">
+        <div className="container mx-auto px-4 text-center ">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 ">
+            Ready to Start Your Solar Project?
+          </h2>
+          <p className="text-xl mb-8 max-w-2xl mx-auto opacity-90">
+            Partner with Fazna Solar Energy for world-class INC delivery and proven expertise across utility-scale solar installations.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button 
+              size="lg" 
+              variant="outline" 
+              className="bg-background/10 border-background/20 text-primary-foreground hover:bg-background/20"
+              data-testid="button-contact-services"
+              onClick={() => window.location.href = '/contact'}
+            >
+              <Users className="h-5 w-5 mr-2" />
+              Contact Our Team
+            </Button>
+            <Button 
+              size="lg" 
+              variant="outline"
+              className="bg-background/10 border-background/20 text-primary-foreground hover:bg-background/20"
+              data-testid="button-project-discussion"
+              onClick={() => window.location.href = '/projects'}
+            >
+              <FileCheck className="h-5 w-5 mr-2" />
+              Discuss Your Project
+            </Button>
           </div>
-        </motion.div>
+        </div>
+      </section>
       </div>
     </section>
   );

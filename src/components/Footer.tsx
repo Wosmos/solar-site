@@ -11,7 +11,7 @@ import {
   Linkedin,
   Twitter
 } from 'lucide-react'
-
+import Image from 'next/image'
 export default function Footer() {
   const currentYear = new Date().getFullYear()
 
@@ -44,9 +44,15 @@ export default function Footer() {
           <div className="space-y-4">
             <Link href="/" data-testid="link-footer-home">
               <div className="flex items-center space-x-3 mb-6">
-                <div className="h-10 w-10 rounded-md bg-primary flex items-center justify-center">
-                  <span className="text-primary-foreground font-bold text-xl">F</span>
-                </div>
+              <div className="h-16 w-16  rounded-md flex items-center justify-center">
+            <Image
+                src="/images/fazna-solar-logo.png"
+                alt="Fazna Solar Energy Dubai Office"
+                width={600}
+                height={400}
+                className="w-full h-full object-cover"
+              />
+            </div>
                 <div className="flex flex-col">
                   <span className="font-bold text-xl leading-tight text-card-foreground">Fazna Solar</span>
                   <span className="text-sm text-muted-foreground leading-tight">Energy LLC</span>
@@ -125,7 +131,7 @@ export default function Footer() {
               <div>
                 <p className="text-sm font-medium text-card-foreground mb-1">Dubai Office</p>
                 <p className="text-xs text-muted-foreground mb-2">
-                  Plot No. 119-0, Dubai Investment Park First
+                  P.O Box - 126830
                 </p>
                 <div className="space-y-1">
                   <div 

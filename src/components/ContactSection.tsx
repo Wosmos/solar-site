@@ -21,7 +21,7 @@ const offices = [
   {
     location: 'Dubai Office',
     country: 'United Arab Emirates',
-    address: 'Plot No. 119-0, Dubai Investment Park First',
+    address: 'P.O Box - 126830',
     contact: {
       name: 'Mr. Syed Ibrahim Asif',
       title: 'Managing Director',
