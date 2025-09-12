@@ -135,7 +135,7 @@ const coreServices = [
     ],
     technicalSpecs: [
       'Project scale: 50MW to 1GW+',
-      'Installation rate: 200MW+ monthly',
+      'Installation rate: 70 - 100MW+ monthly',
       'Grid voltage: Up to 400kV',
       'Performance ratio: >85% annual'
     ],
@@ -292,10 +292,10 @@ const technicalCapabilities = [
   {
     category: 'Installation Capacity',
     metrics: [
-      { label: 'Annual Installation', value: '2GW+', description: 'Proven delivery capacity' },
+      { label: 'Annual Installation', value: '1GW+', description: 'Proven delivery capacity' },
       { label: 'Project Scale', value: '50MW - 1GW+', description: 'Utility-scale expertise' },
-      { label: 'Installation Rate', value: '200MW/month', description: 'Peak construction rate' },
-      { label: 'Team Strength', value: '1000+', description: 'Skilled technicians' }
+      { label: 'Installation Rate', value: '70 - 100MW/month', description: 'Peak construction rate' },
+      { label: 'Team Strength', value: '200+', description: 'Skilled technicians' }
     ]
   },
   {
@@ -346,9 +346,9 @@ const projectHighlights = [
   // },
   {
     name: 'DEWA Phase VI',
-    capacity: '900MW',
+    capacity: '1.8GW',
     location: 'Dubai, UAE',
-    role: 'Construction Partner',
+    role: 'Inc contractor',
     achievement: 'Complex logistics management',
     technology: 'Hybrid solar-storage integration'
   }
@@ -394,7 +394,7 @@ const valuePropositions = [
     segment: 'Utility Developers',
     icon: Building2,
     benefits: [
-      'Accelerated project delivery with proven 200MW+ monthly installation rates',
+      'Accelerated project delivery with proven 70 - 100MW+ monthly installation rates',
       'Risk mitigation through comprehensive INC warranties and performance guarantees',
       'LCOE optimization via advanced technology integration and efficient execution',
       'Regulatory compliance and grid code adherence across multiple jurisdictions'
@@ -472,11 +472,11 @@ export default function ServicesSection() {
             <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed mb-8">
               Delivering record-breaking solar installations from 50MW to multi-gigawatt scale across the Middle East and India. 
               Our proven track record includes landmark projects like Sweihan (1.18GW) and Al Dhafra (2GW) with 
-              zero safety incidents and industry-leading performance ratios.
+              Industry-Leading Safety Record and industry-leading performance ratios.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Badge variant="secondary" className="text-base px-6 py-2 font-medium">
-                2GW+ Successfully Delivered
+                1GW+ Successfully Delivered
               </Badge>
               <Badge variant="secondary" className="text-base px-6 py-2 font-medium">
                 ISO 9001:2015 Excellence
@@ -484,9 +484,9 @@ export default function ServicesSection() {
               <Badge variant="secondary" className="text-base px-6 py-2 font-medium">
                 Zero Lost-Time Incidents
               </Badge>
-              <Badge variant="secondary" className="text-base px-6 py-2 font-medium">
+              {/* <Badge variant="secondary" className="text-base px-6 py-2 font-medium">
                 1000+ Expert Technicians
-              </Badge>
+              </Badge> */}
             </div>
           </div>
 
@@ -759,14 +759,14 @@ export default function ServicesSection() {
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
               Structured approach ensuring consistent quality and timely delivery across all projects
             </p>
-          </div>public/images
+          </div>
 
           <div className="relative">
             <div className="hidden lg:block absolute top-1/2 left-0 right-0 h-px bg-border transform -translate-y-1/2"></div>
             <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
               {deliveryProcess.map((phase, index) => (
                 <Card key={index} className="relative hover-elevate">
-                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 h-8 w-8 bg-primary rounded-full flex items-center justify-center text-primary-foreground font-bold text-sm lg:block hidden">
+                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 h-8 w-8 bg-primary rounded-full md:flex items-center justify-center text-primary-foreground font-bold text-sm lg:block hidden text-center pt-1.5 ">
                     {index + 1}
                   </div>
                   <CardContent className="p-6 pt-8">
@@ -829,8 +829,6 @@ export default function ServicesSection() {
           </div>
         </div>
       </section>
-
-  
     </div>
   );
 }

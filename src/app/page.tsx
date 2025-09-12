@@ -9,6 +9,7 @@ import ServicesSection from '@/components/ServicesSection'
 import ProjectsSection from '@/components/ProjectsSection'
 
 import CTASection from '@/components/CTASection'
+import FaznaFAQ from '@/components/Faq'
 
 export const metadata: Metadata = {
   title: 'Fazna Solar Energy LLC - Premier INC Solar Contractor',
@@ -49,6 +50,7 @@ export default function HomePage() {
         {/* <ProjectsSection /> */}
         <CTASection />
         {/* <ContactSection /> */}
+        <FaznaFAQ/>
       </main>
       <Footer />
       <BackToTop />

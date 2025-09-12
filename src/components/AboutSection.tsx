@@ -55,9 +55,9 @@ const management = [
     name: 'Syed Ibrahim Asif',
     title: 'Managing Director',
     location: 'Dubai, UAE',
-    description: 'Visionary leader with 15+ years expertise in renewable energy development across Asia, Middle East, and Africa. Successfully led the delivery of 2GW+ solar capacity including landmark projects like Sweihan and Al Dhafra. Specialized in project finance structuring, strategic partnerships, and large-scale renewable energy development.',
-    achievements: ['2GW+ Project Portfolio', 'Zero Safety Incidents', 'ISO Certified Operations'],
-    image: '/images/Executive_headshot_portrait_9ee1d9a1.png',
+    description: 'Visionary leader with 15+ years expertise in renewable energy development across Asia, Middle East, and Africa. Successfully led the delivery of 1GW+ solar capacity including landmark projects like Sweihan and Al Dhafra. Specialized in project finance structuring, strategic partnerships, and large-scale renewable energy development.',
+    achievements: ['1GW+ Project Portfolio', 'Industry-Leading Safety Record', 'ISO Certified Operations'],
+    image: '/images/Executive_headshot_portrait.png',
     contact: '+971 527822747'
   },
   // {
@@ -88,7 +88,7 @@ export default function AboutSection() {
             <p className="font-medium text-xl">
               Fazna Solar Energy LLC has rapidly emerged as the region&apos;s most trusted INC contractor, 
               delivering over 2GW of utility-scale solar capacity across landmark projects including Sweihan (1.18GW) 
-              and Al Dhafra (2GW) with zero safety incidents and industry-leading performance ratios.
+              and Al Dhafra (2GW) with Industry-Leading Safety Record and industry-leading performance ratios.
             </p>
             <p>
               <strong>Our Proven Excellence:</strong> Headquartered in Dubai with operations across the Middle East and India, 
@@ -146,12 +146,12 @@ export default function AboutSection() {
           </div>
         </div>
 
-        {/* Management Team */}
+        {/* Management Team */} 
         <div className="mb-20">
           <h3 className="text-2xl md:text-3xl font-bold text-foreground text-center mb-12">
             Leadership Team
           </h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 max-w-5xl mx-auto">
             {management.map((member, index) => (
               <Card 
                 key={index} 

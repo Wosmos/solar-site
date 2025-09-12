@@ -8,7 +8,7 @@ import { Button } from '@/components/ui/button'
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
 import { Badge } from '@/components/ui/badge'
 import { Menu, Sun, Moon, Home, Building2, Wrench, FolderOpen, Mail, Phone, MapPin, Award, Zap, Globe, ExternalLink } from 'lucide-react'
-
+import Image from 'next/image'
 export default function Header() {
   const pathname = usePathname()
   const { theme, setTheme } = useTheme()
@@ -45,8 +45,14 @@ export default function Header() {
       <div className="container mx-auto flex h-16 items-center justify-between px-4">
         <Link href="/" data-testid="link-home-logo">
           <div className="flex items-center space-x-3">
-            <div className="h-8 w-8 rounded-md bg-primary flex items-center justify-center">
-              <span className="text-primary-foreground font-bold text-lg">F</span>
+            <div className="h-16 w-16  rounded-md flex items-center justify-center">
+            <Image
+                src="/images/fazna-solar-logo.png"
+                alt="Fazna Solar Energy Dubai Office"
+                width={600}
+                height={400}
+                className="w-full h-full object-cover"
+              />
             </div>
             <div className="flex flex-col">
               <span className="font-bold text-lg leading-tight">Fazna Solar</span>
@@ -105,9 +111,15 @@ export default function Header() {
                 {/* Header */}
                 <div className="p-6 border-b bg-gradient-to-r from-primary/5 to-blue-50 dark:from-primary/10 dark:to-blue-950">
                   <div className="flex items-center space-x-3 mb-4">
-                    <div className="h-10 w-10 rounded-lg bg-primary flex items-center justify-center">
-                      <span className="text-primary-foreground font-bold text-xl">F</span>
-                    </div>
+                  <div className="h-16 w-16  rounded-md flex items-center justify-center">
+            <Image
+                src="/images/fazna-solar-logo.png"
+                alt="Fazna Solar Energy Dubai Office"
+                width={600}
+                height={400}
+                className="w-full h-full object-cover"
+              />
+            </div>
                     <div>
                       <h2 className="font-bold text-lg">Fazna Solar</h2>
                       <p className="text-sm text-muted-foreground">Energy LLC</p>
@@ -120,10 +132,7 @@ export default function Header() {
 
                 {/* Navigation */}
                 <div className="flex-1 p-6 space-y-6">
-                  <nav className="space-y-2">
-                    <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-3">
-                      Navigation
-                    </h3>
+                  <nav className="space-y-1">
                     {navigation.map((item) => {
                       const Icon = item.icon
                       return (
@@ -144,69 +153,9 @@ export default function Header() {
                       )
                     })}
                   </nav>
-
-                  {/* Company Stats */}
-                  <div className="space-y-3">
-                    <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider">
-                      Our Impact
-                    </h3>
-                    <div className="grid grid-cols-1 gap-3">
-                      {companyStats.map((stat, index) => {
-                        const Icon = stat.icon
-                        return (
-                          <div key={index} className="flex items-center space-x-3 p-3 bg-muted/50 rounded-lg">
-                            <div className="h-8 w-8 rounded-md bg-primary/10 flex items-center justify-center">
-                              <Icon className="h-4 w-4 text-primary" />
-                            </div>
-                            <div>
-                              <div className="font-bold text-sm">{stat.label}</div>
-                              <div className="text-xs text-muted-foreground">{stat.description}</div>
-                            </div>
-                          </div>
-                        )
-                      })}
-                    </div>
-                  </div>
-
-                  {/* Quick Actions */}
-                  <div className="space-y-3">
-                    <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider">
-                      Quick Actions
-                    </h3>
-                    <div className="space-y-2">
-                      {quickActions.map((action, index) => (
-                        <Link key={index} href={action.href} onClick={() => setIsOpen(false)}>
-                          <Button
-                            variant={action.primary ? "default" : "outline"}
-                            className="w-full justify-start"
-                            data-testid={`button-mobile-${action.label.toLowerCase().replace(' ', '-')}`}
-                          >
-                            {action.label}
-                            <ExternalLink className="ml-auto h-4 w-4" />
-                          </Button>
-                        </Link>
-                      ))}
-                    </div>
-                  </div>
                 </div>
 
-                {/* Footer */}
-                <div className="p-6 border-t bg-muted/30">
-                  <div className="space-y-3">
-                    <div className="flex items-center space-x-2 text-sm text-muted-foreground">
-                      <MapPin className="h-4 w-4" />
-                      <span>UAE • India • Middle East</span>
-                    </div>
-                    <div className="flex items-center space-x-2 text-sm text-muted-foreground">
-                      <Phone className="h-4 w-4" />
-                      <span>+971 XX XXX XXXX</span>
-                    </div>
-                    <Badge variant="secondary" className="w-fit">
-                      <Award className="h-3 w-3 mr-1" />
-                      ISO 9001:2015 Certified
-                    </Badge>
-                  </div>
-                </div>
+              
               </div>
             </SheetContent>
           </Sheet>

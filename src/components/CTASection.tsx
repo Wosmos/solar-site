@@ -19,8 +19,8 @@ const achievements = [
   },
   {
     icon: Shield,
-    value: 'Zero',
-    label: 'Safety Incidents',
+    value: '90%',
+    label: 'Safety Compliance',
     color: 'text-accent'
   },
   {
@@ -40,7 +40,7 @@ const achievements = [
 export default function CTASection() {
 
   return (
-    <section data-section="cta" className="py-24 bg-gradient-to-br from-primary/5 via-background to-secondary/5">
+    <section data-section="cta" className="bg-gradient-to-br from-primary/5 via-background to-secondary/5">
       <div className="container mx-auto px-4">
 
 
@@ -61,9 +61,9 @@ export default function CTASection() {
           ))}
         </div>
     {/* Call to Action */}
-      <section className="py-24 bg-gradient-to-r from-primary via-primary/90 to-secondary text-primary-foreground">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
+      <section className="rounded-md mt-6 mb-2 py-20 bg-gradient-to-r from-primary via-primary/90 to-secondary text-white ">
+        <div className="container mx-auto px-4 text-center ">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 ">
             Ready to Start Your Solar Project?
           </h2>
           <p className="text-xl mb-8 max-w-2xl mx-auto opacity-90">

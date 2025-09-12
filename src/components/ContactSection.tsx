@@ -30,18 +30,18 @@ const offices = [
     },
     hours: 'Sunday - Thursday: 8:00 AM - 6:00 PM'
   },
-  {
-    location: 'India Office',
-    country: 'India',
-    address: 'Aye Totes Pvt Ltd (Fazna Solar Energy LLC - Subsidiary)',
-    contact: {
-      name: 'Mr. Chittibabu Lakkum',
-      title: 'Technical Director',
-      phone: '+91 7981505254',
-      email: 'cb@faznasolar.com'
-    },
-    hours: 'Monday - Friday: 9:00 AM - 6:00 PM'
-  }
+  // {
+  //   location: 'India Office',
+  //   country: 'India',
+  //   address: 'Aye Totes Pvt Ltd (Fazna Solar Energy LLC - Subsidiary)',
+  //   contact: {
+  //     name: 'Mr. Chittibabu Lakkum',
+  //     title: 'Technical Director',
+  //     phone: '+91 7981505254',
+  //     email: 'cb@faznasolar.com'
+  //   },
+  //   hours: 'Monday - Friday: 9:00 AM - 6:00 PM'
+  // }
 ];
 
 const inquiryTypes = [

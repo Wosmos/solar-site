@@ -52,7 +52,7 @@ export default function HeroSection() {
           {/* Descriptive Text */}
           <p className="text-sm md:text-lg text-white/70 max-w-2xl mx-auto leading-relaxed">
             Delivering utility-scale solar excellence across the Middle East and
-            India with zero safety incidents and ISO-certified precision.
+            India with Industry-Leading Safety Record and ISO-certified precision.
           </p>
 
           {/* Single CTA Button */}

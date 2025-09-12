@@ -147,7 +147,7 @@ export default function Footer() {
                 </div>
               </div>
               
-              <div>
+              {/* <div>
                 <p className="text-sm font-medium text-card-foreground mb-1">India Office</p>
                 <div className="space-y-1">
                   <div 
@@ -167,7 +167,7 @@ export default function Footer() {
                     cb@faznasolar.com
                   </div>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
