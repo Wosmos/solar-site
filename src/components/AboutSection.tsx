@@ -55,11 +55,20 @@ const management = [
     name: 'Syed Ibrahim Asif',
     title: 'Managing Director',
     location: 'Dubai, UAE',
-    description: 'Visionary leader with 15+ years expertise in renewable energy development across Asia, Middle East, and Africa. Successfully led the delivery of 1GW+ solar capacity including landmark projects like Sweihan and Aldhafra. Specialized in project finance structuring, strategic partnerships, and large-scale renewable energy development.',
+    description: 'Visionary leader with 20+ years expertise in renewable energy development across Asia, Middle East, and Africa. Successfully led the delivery of 1GW+ solar capacity including landmark projects like Sweihan and Aldhafra. Specialized in project finance structuring, strategic partnerships, and large-scale renewable energy development.',
     achievements: ['1GW+ Project Portfolio', 'Industry-Leading Safety Record', 'ISO Certified Operations'],
     image: '/images/Executive_headshot_portrait.png',
     contact: '+971 527822747'
   },
+ {
+    name: 'Chittibabu Lakkum',
+    title: 'Technical Director',
+    location: 'India Operations',
+    description: 'Distinguished technical expert with 20+ years in utility-scale solar INC operations. Led technical delivery of multiple gigawatt-scale projects with industry-leading performance ratios. Specialized in advanced installation methodologies, quality control systems, and operational excellence across desert and challenging environments.',
+    achievements: ['20+ Years Experience', '1GW+ Technical Delivery', 'Advanced Installation Systems'],
+    image: '/images/Technical_director.png',
+    contact: '+91 7981505254'
+  }
 ];
 
 export default function AboutSection() {
@@ -142,11 +151,11 @@ export default function AboutSection() {
           <h3 className="text-2xl md:text-3xl font-bold text-foreground text-center mb-12">
             Leadership Team
           </h3>
-          <div className="grid grid-cols-1 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 max-w-5xl mx-auto ">
             {management.map((member, index) => (
               <Card 
                 key={index} 
-                className="hover-elevate border-card-border"
+                className="hover-elevate border-card-border mt-2"
                 data-testid={`card-management-${member.name.toLowerCase().replace(' ', '-')}`}
               >
                 <CardContent className="p-6">
