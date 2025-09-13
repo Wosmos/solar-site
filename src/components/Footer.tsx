@@ -152,28 +152,6 @@ export default function Footer() {
                   </div>
                 </div>
               </div>
-              
-              {/* <div>
-                <p className="text-sm font-medium text-card-foreground mb-1">India Office</p>
-                <div className="space-y-1">
-                  <div 
-                    className="flex items-center gap-2 text-xs text-muted-foreground cursor-pointer hover:text-primary"
-                    onClick={() => console.log('India phone clicked')}
-                    data-testid="link-india-phone"
-                  >
-                    <Phone className="h-3 w-3" />
-                    +91 7981505254
-                  </div>
-                  <div 
-                    className="flex items-center gap-2 text-xs text-muted-foreground cursor-pointer hover:text-primary"
-                    onClick={() => console.log('India email clicked')}
-                    data-testid="link-india-email"
-                  >
-                    <Mail className="h-3 w-3" />
-                    cb@faznasolar.com
-                  </div>
-                </div>
-              </div> */}
             </div>
           </div>
         </div>

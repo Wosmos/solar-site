@@ -124,7 +124,7 @@ const coreServices = [
     title: 'Utility-Scale Ground Mounted',
     category: 'Large-Scale Infrastructure',
     description: 'End-to-end utility-scale solar installations with comprehensive project management, from 50MW to 1GW+ developments across desert and industrial environments.',
-    detailedDescription: 'Our utility-scale service manages complete INC delivery for large solar farms including site preparation, infrastructure development, grid integration, and commissioning. We leverage extensive experience from projects like Sweihan (1.18GW) and Al Dhafra (2GW).',
+    detailedDescription: 'Our utility-scale service manages complete INC delivery for large solar farms including site preparation, infrastructure development, grid integration, and commissioning. We leverage extensive experience from projects like Sweihan (1.18GW) and Al Dafra (2GW).',
     capabilities: [
       'Site preparation & civil works',
       'Large-scale infrastructure development',
@@ -329,7 +329,7 @@ const projectHighlights = [
     technology: 'Single-axis tracking, bifacial modules'
   },
   {
-    name: 'Al Dhafra Solar',
+    name: 'Al Dafra Solar',
     capacity: '2GW',
     location: 'Abu Dhabi, UAE', 
     role: 'Installation Contractor',
@@ -471,7 +471,7 @@ export default function ServicesSection() {
             </h1>
             <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed mb-8">
               Delivering record-breaking solar installations from 50MW to multi-gigawatt scale across the Middle East and India. 
-              Our proven track record includes landmark projects like Sweihan (1.18GW) and Al Dhafra (2GW) with 
+              Our proven track record includes landmark projects like Sweihan (1.18GW) and Al Dafra (2GW) with 
               Industry-Leading Safety Record and industry-leading performance ratios.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
@@ -484,9 +484,6 @@ export default function ServicesSection() {
               <Badge variant="secondary" className="text-base px-6 py-2 font-medium">
                 Zero Lost-Time Incidents
               </Badge>
-              {/* <Badge variant="secondary" className="text-base px-6 py-2 font-medium">
-                1000+ Expert Technicians
-              </Badge> */}
             </div>
           </div>
 

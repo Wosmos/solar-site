@@ -55,7 +55,7 @@ const management = [
     name: 'Syed Ibrahim Asif',
     title: 'Managing Director',
     location: 'Dubai, UAE',
-    description: 'Visionary leader with 15+ years expertise in renewable energy development across Asia, Middle East, and Africa. Successfully led the delivery of 1GW+ solar capacity including landmark projects like Sweihan and Al Dhafra. Specialized in project finance structuring, strategic partnerships, and large-scale renewable energy development.',
+    description: 'Visionary leader with 15+ years expertise in renewable energy development across Asia, Middle East, and Africa. Successfully led the delivery of 1GW+ solar capacity including landmark projects like Sweihan and Al Dafra. Specialized in project finance structuring, strategic partnerships, and large-scale renewable energy development.',
     achievements: ['1GW+ Project Portfolio', 'Industry-Leading Safety Record', 'ISO Certified Operations'],
     image: '/images/Executive_headshot_portrait.png',
     contact: '+971 527822747'
@@ -88,7 +88,7 @@ export default function AboutSection() {
             <p className="font-medium text-xl">
               Fazna Solar Energy LLC has rapidly emerged as the region&apos;s most trusted INC contractor, 
               delivering over 2GW of utility-scale solar capacity across landmark projects including Sweihan (1.18GW) 
-              and Al Dhafra (2GW) with Industry-Leading Safety Record and industry-leading performance ratios.
+              and Al Dafra (2GW) with Industry-Leading Safety Record and industry-leading performance ratios.
             </p>
             <p>
               <strong>Our Proven Excellence:</strong> Headquartered in Dubai with operations across the Middle East and India, 

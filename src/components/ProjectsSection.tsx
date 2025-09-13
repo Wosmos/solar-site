@@ -4,8 +4,6 @@ import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Progress } from '@/components/ui/progress';
-import { Separator } from '@/components/ui/separator';
 import Image from 'next/image'
 import { 
   ExternalLink, 
@@ -230,77 +228,6 @@ const projects: ProjectDetail[] = [
     sector: 'Utility',
     projectType: 'INC'
   },
-  // {
-  //   id: 3,
-  //   name: 'Saudi Sakkakah Project',
-  //   location: 'Al Jouf, Saudi Arabia',
-  //   capacity: '300 MW',
-  //   status: 'Completed',
-  //   scope: 'Module Installation & Alignment Services',
-  //   description: 'Strategic market entry project demonstrating precision installation capabilities and successful international expansion into Saudi Arabia\'s renewable energy sector.',
-  //   image: '/images/placeholder-project3.jpg',
-  //   features: ['International expansion', 'Precision installation', 'Local partnerships', 'Technology transfer'],
-  //   year: '2021-2022',
-  //   client: 'ACWA Power & Al Jouf Development Company',
-  //   projectValue: '$195 Million USD',
-  //   timeline: {
-  //     planning: 'Q3 2021 - Q4 2021',
-  //     construction: 'Q1 2022 - Q3 2022',
-  //     commissioning: 'Q4 2022 - Q1 2023',
-  //     completion: 'December 2022'
-  //   },
-  //   technicalSpecs: {
-  //     moduleType: 'Monocrystalline PERC 540W',
-  //     inverterType: 'Central Inverters 3.125MW',
-  //     trackingSystem: 'Fixed-tilt optimized design',
-  //     moduleCount: '555,556 modules',
-  //     efficiency: '20.9% module efficiency',
-  //     annualGeneration: '680 GWh/year'
-  //   },
-  //   challenges: [
-  //     {
-  //       title: 'International Market Entry',
-  //       description: 'Establishing operations in new market with different regulations, standards, and workforce requirements.',
-  //       solution: 'Formed strategic local partnerships and implemented comprehensive workforce development and knowledge transfer programs.'
-  //     },
-  //     {
-  //       title: 'Precision Installation Requirements',
-  //       description: 'Client required exceptional installation accuracy with minimal rework tolerance.',
-  //       solution: 'Deployed advanced surveying equipment and implemented real-time quality control systems with instant feedback loops.'
-  //     },
-  //     {
-  //       title: 'Extreme Climate Adaptation',
-  //       description: 'Working in temperatures reaching 55°C with significant diurnal temperature variations.',
-  //       solution: 'Adapted work schedules, implemented enhanced cooling systems, and developed specialized equipment for extreme conditions.'
-  //     }
-  //   ],
-  //   achievements: [
-  //     'Achieved 99.9% installation precision accuracy',
-  //     'Completed 3 weeks ahead of contracted schedule',
-  //     'Successfully transferred technology to local workforce',
-  //     'Established Fazna Solar presence in Saudi market',
-  //     'Zero rework required during final inspection'
-  //   ],
-  //   environmental: {
-  //     co2Reduction: '420,000 tons annually',
-  //     energyEquivalent: 'Powers 85,000 homes annually',
-  //     treesPlanted: 'Equivalent to planting 10.8 million trees'
-  //   },
-  //   technology: [
-  //     'Precision GPS-guided installation',
-  //     'Real-time alignment monitoring',
-  //     'Automated torque verification systems',
-  //     'Advanced surveying and layout tools',
-  //     'Quality control mobile applications'
-  //   ],
-  //   certifications: ['ISO 9001:2015', 'Saudi Contractor Classification'],
-  //   awards: ['Best International Solar Installation 2023'],
-  //   teamSize: '450+ engineers and technicians',
-  //   lessonLearned: 'International expansion requires comprehensive local partnership strategies and adaptive project management approaches for different regulatory environments.',
-  //   futureImpact: 'Establishes foundation for Fazna Solar\'s regional expansion strategy and demonstrates capability for precision installation in diverse markets.',
-  //   sector: 'Utility',
-  //   projectType: 'Installation'
-  // },
   {
     id: 4,
     name: 'DEWA VI Project',
@@ -803,43 +730,6 @@ export default function ProjectsSection() {
           </Card>
         </div>
 
-        {/* Filtering Controls */}
-        <div className="flex flex-wrap gap-4 mb-8 justify-center">
-          <div className="flex items-center gap-2">
-            <span className="text-sm font-medium text-muted-foreground">Filter by Sector:</span>
-            <div className="flex gap-2">
-              {['All', 'Utility', 'Commercial', 'Industrial'].map((sector) => (
-                <Button
-                  key={sector}
-                  variant={filterSector === sector ? 'default' : 'outline'}
-                  size="sm"
-                  onClick={() => setFilterSector(sector)}
-                  data-testid={`filter-sector-${sector.toLowerCase()}`}
-                >
-                  {sector}
-                </Button>
-              ))}
-            </div>
-          </div>
-          
-          <div className="flex items-center gap-2">
-            <span className="text-sm font-medium text-muted-foreground">Filter by Status:</span>
-            <div className="flex gap-2">
-              {['All', 'Completed', 'Ongoing', 'Planning'].map((status) => (
-                <Button
-                  key={status}
-                  variant={filterStatus === status ? 'default' : 'outline'}
-                  size="sm"
-                  onClick={() => setFilterStatus(status)}
-                  data-testid={`filter-status-${status.toLowerCase()}`}
-                >
-                  {status}
-                </Button>
-              ))}
-            </div>
-          </div>
-        </div>
-
         {/* Projects Grid */}
         <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
           {filteredProjects.map((project, index) => {
@@ -953,20 +843,6 @@ export default function ProjectsSection() {
                       <div className="text-xs text-muted-foreground">CO₂ Reduction</div>
                     </div>
                   </div>
-
-                  <Button 
-                    variant="ghost" 
-                    size="sm" 
-                    className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-colors"
-                    data-testid={`button-view-project-${project.id}`}
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      setSelectedProject(project);
-                    }}
-                  >
-                    View Detailed Case Study
-                    <ExternalLink className="ml-2 h-3 w-3" />
-                  </Button>
                 </CardContent>
               </Card>
             );
