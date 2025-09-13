@@ -63,11 +63,11 @@ const management = [
  {
     name: 'Chittibabu Lakkum',
     title: 'Technical Director',
-    location: 'India Operations',
+    location: '',
     description: 'Distinguished technical expert with 20+ years in utility-scale solar INC operations. Led technical delivery of multiple gigawatt-scale projects with industry-leading performance ratios. Specialized in advanced installation methodologies, quality control systems, and operational excellence across desert and challenging environments.',
     achievements: ['20+ Years Experience', '1GW+ Technical Delivery', 'Advanced Installation Systems'],
     image: '/images/Technical_director.png',
-    contact: '+91 7981505254'
+    contact: '+971 527822747'
   }
 ];
 

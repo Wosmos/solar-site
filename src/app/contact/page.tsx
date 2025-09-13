@@ -4,6 +4,7 @@ import Footer from '@/components/Footer'
 import SkipToContent from '@/components/SkipToContent'
 import BackToTop from '@/components/BackToTop'
 import ContactSection from '@/components/ContactSection'
+import RecaptchaTest from '@/components/RecaptchaTest'
 
 export const metadata: Metadata = {
   title: 'Contact Us - Fazna Solar Energy LLC',
@@ -20,6 +21,10 @@ export default function ContactPage() {
       <SkipToContent />
       <Header />
       <main id="main-content" className="flex-1 focus:outline-none" tabIndex={-1}>
+        {/* Temporary Test Panel - Remove after testing */}
+        <div className="container mx-auto px-4 pt-8">
+          <RecaptchaTest />
+        </div>
         <ContactSection />
       </main>
       <Footer />

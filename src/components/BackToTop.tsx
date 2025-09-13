@@ -150,7 +150,7 @@ export default function AdvancedBackToTop() {
     { 
       icon: MapPin, 
       label: 'Location', 
-      value: 'Dubai Investment Park',
+      value: 'P.O Box - 126830, Dubai, UAE',
       action: () => window.open('https://maps.google.com/?q=Dubai+Investment+Park+First', '_blank')
     },
     { 

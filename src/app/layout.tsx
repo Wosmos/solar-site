@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from 'next'
 import { Inter } from 'next/font/google'
 import { ThemeProvider } from '@/components/ThemeProvider'
 import { QueryProvider } from '@/components/QueryProvider'
+import RecaptchaProvider from '@/components/RecaptchaProvider'
 import { TooltipProvider } from '@/components/ui/tooltip'
 import { Toaster } from '@/components/ui/toaster'
 import './globals.css'
@@ -35,6 +36,11 @@ export const metadata: Metadata = {
     email: false,
     address: false,
     telephone: false,
+  },
+  icons: {
+    icon: '/images/fazna-solar-logo.png',
+    shortcut: '/images/fazna-solar-logo.png',
+    apple: '/images/fazna-solar-logo.png',
   },
   metadataBase: new URL('https://faznasolar.com'),
   alternates: {
@@ -83,19 +89,21 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${inter.variable} font-sans antialiased`}>
-        <QueryProvider>
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="light"
-            enableSystem
-            disableTransitionOnChange
-          >
-            <TooltipProvider>
-              {children}
-              <Toaster />
-            </TooltipProvider>
-          </ThemeProvider>
-        </QueryProvider>
+        <RecaptchaProvider>
+          <QueryProvider>
+            <ThemeProvider
+              attribute="class"
+              defaultTheme="light"
+              enableSystem
+              disableTransitionOnChange
+            >
+              <TooltipProvider>
+                {children}
+                <Toaster />
+              </TooltipProvider>
+            </ThemeProvider>
+          </QueryProvider>
+        </RecaptchaProvider>
       </body>
     </html>
   )
