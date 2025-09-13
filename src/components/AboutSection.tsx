@@ -60,15 +60,6 @@ const management = [
     image: '/images/Executive_headshot_portrait.png',
     contact: '+971 527822747'
   },
-  // {
-  //   name: 'Chittibabu Lakkum',
-  //   title: 'Technical Director',
-  //   location: 'India Operations',
-  //   description: 'Distinguished technical expert with 20+ years in utility-scale solar INC operations. Led technical delivery of multiple gigawatt-scale projects with industry-leading performance ratios. Specialized in advanced installation methodologies, quality control systems, and operational excellence across desert and challenging environments.',
-  //   achievements: ['20+ Years Experience', '1GW+ Technical Delivery', 'Advanced Installation Systems'],
-  //   image: '/images/Technical_director_portrait_5fff9ddd.png',
-  //   contact: '+91 7981505254'
-  // }
 ];
 
 export default function AboutSection() {
