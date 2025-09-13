@@ -112,7 +112,7 @@ export default function AboutSection() {
               <ul className="text-sm text-muted-foreground space-y-2 list-disc list-inside">
                 <li>On-time project delivery with zero compromise on quality</li>
                 <li>Performance ratios exceeding 85% through proven engineering</li>
-                <li>Zero lost-time incidents through rigorous safety protocols</li>
+                <li>90%+ Safety Compliance through rigorous safety protocols</li>
                 <li>Cost-effective solutions backed by comprehensive warranties</li>
               </ul>
             </div>

@@ -480,7 +480,7 @@ export default function ServicesSection() {
                 ISO 9001:2015 Excellence
               </Badge>
               <Badge variant="secondary" className="text-base px-6 py-2 font-medium">
-                Zero Lost-Time Incidents
+                90%+ Safety Compliance
               </Badge>
             </div>
           </div>

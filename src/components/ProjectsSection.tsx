@@ -97,7 +97,7 @@ const projects: ProjectDetail[] = [
     status: 'Completed',
     scope: 'INC Construction - Zones 1&4, Zone 3B',
     description: 'One of the world&apos;s largest single-site solar projects, establishing new benchmarks for utility-scale solar development in the Middle East.',
-    image: '/images/Sweihan_solar_project_ca6a3eb5.png',
+    image: '/images/Sweihan-Solar-Project.png',
     features: ['Utility-scale installation', 'Desert conditions', 'Grid integration', 'World-class efficiency'],
     year: '2019-2022',
     client: 'Emirates Water and Electricity Company (EWEC)',
@@ -168,7 +168,7 @@ const projects: ProjectDetail[] = [
     status: 'Completed',
     scope: 'INC Construction Services',
     description: 'Record-breaking solar installation establishing new global benchmarks for utility-scale solar development and desert engineering excellence.',
-    image: '/images/placeholder-project2.jpg',
+    image: '/images/Al-Dafra-PV2-Project.png',
     features: ['Record capacity', 'Advanced tracking', 'High efficiency', 'Desert innovation'],
     year: '2020-2023',
     client: 'Emirates Water and Electricity Company (EWEC)',
@@ -239,7 +239,7 @@ const projects: ProjectDetail[] = [
     status: 'Ongoing',
     scope: 'INC Services - Phase Implementation',
     description: 'Strategic contribution to Dubai\'s Clean Energy Strategy 2050, implementing cutting-edge solar technology with smart city integration capabilities.',
-    image: '/images/placeholder-project4.jpg',
+    image: '/images/DEWA-VI-Project.png',
     features: ['Smart city integration', 'Advanced technology', 'Phased delivery', 'Grid modernization'],
     year: '2023- ongoing',
     client: 'Dubai Electricity and Water Authority (DEWA)',
@@ -381,7 +381,7 @@ const projects: ProjectDetail[] = [
     status: 'Completed',
     scope: 'Commercial Solar Installation & Integration',
     description: 'Advanced commercial solar installation showcasing high-reliability systems design for critical infrastructure applications.',
-    image: '/images/placeholder-project6.jpg',
+    image: '/images/Khazna-Data-Centre-Solar-Project.png',
     features: ['Data centre integration', 'Commercial scale', 'High reliability', '24/7 operations'],
     year: '2023',
     client: 'Khazna Data Centers LLC',
@@ -453,7 +453,7 @@ const projects: ProjectDetail[] = [
     status: 'Completed',
     scope: 'Rooftop & Ground-mount Installation',
     description: 'Large-scale industrial solar installation demonstrating Fazna Solar&apos;s capabilities in Indian market with mixed rooftop and ground-mount systems.',
-    image: '/images/placeholder-project7.jpg',
+    image: '/images/placeholder.png',
     features: ['Mixed installation', 'Industrial efficiency', 'Cost optimization', 'Local workforce'],
     year: '2023-2024',
     client: 'Maharashtra Industrial Development Corporation',
@@ -524,7 +524,7 @@ const projects: ProjectDetail[] = [
     status: 'Planning',
     scope: 'Grid Integration & INC Services',
     description: 'Next-generation grid integration project supporting Qatar&apos;s National Vision 2030 with advanced energy storage and smart grid capabilities.',
-    image: '/images/placeholder-project8.jpg',
+    image: '/images/placeholder.png',
     features: ['Energy storage', 'Smart grid', 'National strategy', 'Advanced integration'],
     year: '2025-2026',
     client: 'Qatar General Electricity & Water Corporation (KAHRAMAA)',
@@ -758,14 +758,14 @@ export default function ProjectsSection() {
         </div>
 
         {/* Lightweight Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-6 mb-16">
           {filteredProjects.map((project, index) => {
             const SectorIcon = getSectorIcon(project.sector);
             return (
               <Card 
                 key={project.id}
                 data-index={index}
-                className={`group cursor-pointer overflow-hidden border transition-all duration-500 hover:shadow-xl hover:scale-[1.02] ${
+                className={`group cursor-pointer overflow-hidden border transition-all duration-300 hover:shadow-xl hover:scale-[1.02] ${
                   isClient && visibleProjects.includes(index) 
                     ? 'opacity-100 translate-y-0' 
                     : 'opacity-100 translate-y-0'
@@ -783,7 +783,7 @@ export default function ProjectsSection() {
                     alt={project.name}
                     width={400}
                     height={300}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-200"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
                   
