@@ -8,11 +8,11 @@ import ProjectsSection from "@/components/ProjectsSection";
 export const metadata: Metadata = {
   title: "Projects - Fazna Solar Energy LLC",
   description:
-    "Explore our portfolio of successful utility-scale solar projects including Sweihan Solar (1.18 GW) and Al Dafra PV2 (2 GW).",
+    "Explore our portfolio of successful utility-scale solar projects including Sweihan Solar (1.18 GW) and Aldhafra PV2 (2 GW).",
   openGraph: {
     title: "Projects - Fazna Solar Energy LLC",
     description:
-      "Explore our portfolio of successful utility-scale solar projects including Sweihan Solar (1.18 GW) and Al Dafra PV2 (2 GW).",
+      "Explore our portfolio of successful utility-scale solar projects including Sweihan Solar (1.18 GW) and Aldhafra PV2 (2 GW).",
   },
 };
 

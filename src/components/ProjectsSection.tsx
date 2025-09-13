@@ -1,9 +1,10 @@
 'use client'
-import { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import Image from 'next/image'
 import { 
   ExternalLink, 
@@ -31,7 +32,9 @@ import {
   Lightbulb,
   Truck,
   Factory,
-  X
+  X,
+  Coins,
+  Eye
 } from 'lucide-react';
 // Images will be added later - using placeholders for now
 
@@ -94,7 +97,7 @@ const projects: ProjectDetail[] = [
     status: 'Completed',
     scope: 'INC Construction - Zones 1&4, Zone 3B',
     description: 'One of the world&apos;s largest single-site solar projects, establishing new benchmarks for utility-scale solar development in the Middle East.',
-    image: '/images/placeholder-project1.jpg',
+    image: '/images/Sweihan_solar_project_ca6a3eb5.png',
     features: ['Utility-scale installation', 'Desert conditions', 'Grid integration', 'World-class efficiency'],
     year: '2019-2022',
     client: 'Emirates Water and Electricity Company (EWEC)',
@@ -307,7 +310,7 @@ const projects: ProjectDetail[] = [
     status: 'Completed',
     scope: 'Specialized INC Services - Oil & Gas Integration',
     description: 'Pioneering renewable energy integration with oil and gas operations, demonstrating versatility in specialized industrial applications.',
-    image: '/images/placeholder-project5.jpg',
+    image: '/images/Oman-PDO-Amin-Solar-Project.png',
     features: ['Oil & gas integration', 'Remote location', 'Specialized requirements', 'Industrial reliability'],
     year: '2022-2023',
     client: 'Petroleum Development Oman (PDO)',
@@ -607,9 +610,11 @@ const getSectorIcon = (sector: string) => {
 export default function ProjectsSection() {
   const [visibleProjects, setVisibleProjects] = useState<number[]>([]);
   const [selectedProject, setSelectedProject] = useState<ProjectDetail | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [filterSector, setFilterSector] = useState<string>('All');
   const [filterStatus, setFilterStatus] = useState<string>('All');
   const [activeTab, setActiveTab] = useState('overview');
+  const [isClient, setIsClient] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
 
   // Filter projects based on selected filters
@@ -637,13 +642,42 @@ export default function ProjectsSection() {
     return sum + co2;
   }, 0);
 
+  const handleProjectClick = (project: ProjectDetail) => {
+    setSelectedProject(project);
+    setIsModalOpen(true);
+    setActiveTab('overview');
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setSelectedProject(null);
+  };
+
   useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  useEffect(() => {
+    if (isClient) {
+      // Initially show all projects to prevent layout shift
+      setVisibleProjects(Array.from({ length: projects.length }, (_, index) => index));
+    }
+  }, [isClient]);
+
+  useEffect(() => {
+    if (!isClient) return;
+    
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             const projectIndex = parseInt(entry.target.getAttribute('data-index') || '0');
-            setVisibleProjects(prev => [...prev, projectIndex]);
+            setVisibleProjects(prev => {
+              if (!prev.includes(projectIndex)) {
+                return [...prev, projectIndex];
+              }
+              return prev;
+            });
           }
         });
       },
@@ -654,7 +688,7 @@ export default function ProjectsSection() {
     projectElements?.forEach(project => observer.observe(project));
 
     return () => observer.disconnect();
-  }, [filteredProjects]);
+  }, [filteredProjects, isClient]);
   return (
     <section ref={sectionRef} data-section="projects" className="py-24 bg-muted/30 relative overflow-hidden">
       {/* Background Pattern */}
@@ -673,22 +707,15 @@ export default function ProjectsSection() {
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6" role="heading" aria-level={2}>
             Landmark Solar Projects That Define Industry Excellence
           </h2>
-          <div className="max-w-4xl mx-auto space-y-4 mb-8">
-            <p className="text-xl text-muted-foreground leading-relaxed font-medium">
-              From record-breaking gigawatt installations to pioneering engineering solutions, our portfolio 
-              showcases the world&apos;s most ambitious solar projects successfully delivered on time and within budget.
-            </p>
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              <strong>Track Record:</strong> Over 2GW of utility-scale capacity delivered across 10+ major projects, 
-              including two of the world&apos;s largest single-site solar installations, with zero safety incidents and 
-              performance ratios consistently exceeding industry benchmarks.
-            </p>
-          </div>
+          <p className="text-xl text-muted-foreground leading-relaxed font-medium max-w-4xl mx-auto">
+            From record-breaking gigawatt installations to pioneering engineering solutions, our portfolio 
+            showcases the world&apos;s most ambitious solar projects successfully delivered on time and within budget.
+          </p>
         </div>
 
         {/* Portfolio Statistics Dashboard */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-          <Card className="text-center">
+          <Card className="text-center hover:shadow-lg transition-shadow duration-300">
             <CardContent className="p-6">
               <div className="flex items-center justify-center mb-2">
                 <Zap className="h-8 w-8 text-secondary" />
@@ -698,17 +725,17 @@ export default function ProjectsSection() {
             </CardContent>
           </Card>
           
-          <Card className="text-center">
+          <Card className="text-center hover:shadow-lg transition-shadow duration-300">
             <CardContent className="p-6">
               <div className="flex items-center justify-center mb-2">
-                <DollarSign className="h-8 w-8 text-secondary" />
+                <Coins className="h-8 w-8 text-secondary" />
               </div>
               <div className="text-3xl font-bold text-foreground mb-1">${(totalValue / 1000).toFixed(1)}B</div>
               <div className="text-sm text-muted-foreground">Total Project Value</div>
             </CardContent>
           </Card>
           
-          <Card className="text-center">
+          <Card className="text-center hover:shadow-lg transition-shadow duration-300">
             <CardContent className="p-6">
               <div className="flex items-center justify-center mb-2">
                 <CheckCircle className="h-8 w-8 text-accent" />
@@ -719,7 +746,7 @@ export default function ProjectsSection() {
             </CardContent>
           </Card>
           
-          <Card className="text-center">
+          <Card className="text-center hover:shadow-lg transition-shadow duration-300">
             <CardContent className="p-6">
               <div className="flex items-center justify-center mb-2">
                 <Leaf className="h-8 w-8 text-accent" />
@@ -730,117 +757,103 @@ export default function ProjectsSection() {
           </Card>
         </div>
 
-        {/* Projects Grid */}
-        <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+        {/* Lightweight Projects Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-16">
           {filteredProjects.map((project, index) => {
             const SectorIcon = getSectorIcon(project.sector);
             return (
               <Card 
                 key={project.id}
                 data-index={index}
-                className={`group hover-elevate cursor-pointer overflow-hidden border-card-border transition-all duration-700 hover:shadow-2xl ${
-                  visibleProjects.includes(index) 
+                className={`group cursor-pointer overflow-hidden border transition-all duration-500 hover:shadow-xl hover:scale-[1.02] ${
+                  isClient && visibleProjects.includes(index) 
                     ? 'opacity-100 translate-y-0' 
-                    : 'opacity-0 translate-y-8'
+                    : 'opacity-100 translate-y-0'
                 }`}
-                style={{ transitionDelay: `${index * 150}ms` }}
-                data-testid={`card-project-${project.id}`}
-                onClick={() => setSelectedProject(project)}
+                style={{ 
+                  transitionDelay: isClient ? `${index * 100}ms` : '0ms',
+                  ...(isClient && !visibleProjects.includes(index) ? { opacity: 0, transform: 'translateY(2rem)' } : {})
+                }}
+                onClick={() => handleProjectClick(project)}
               >
-                <div className="aspect-video overflow-hidden relative">
+                {/* Project Image */}
+                <div className="aspect-[4/3] overflow-hidden relative">
                   <Image
                     src={project.image}
-                    alt={`${project.name} solar installation project in ${project.location} - ${project.description.substring(0, 100)}...`}
-                    width={600}
-                    height={400}
+                    alt={project.name}
+                    width={400}
+                    height={300}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                  <div className="absolute top-4 left-4">
-                    <Badge 
-                      className={`${getStatusColor(project.status)} text-xs`}
-                      aria-label={`Project status: ${project.status}`}
-                    >
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                  
+                  {/* Status Badge */}
+                  <div className="absolute top-3 left-3">
+                    <Badge className={`${getStatusColor(project.status)} text-xs font-medium`}>
                       {project.status}
                     </Badge>
                   </div>
-                  <div className="absolute top-4 right-4">
-                    <SectorIcon 
-                      className="h-5 w-5 text-white" 
-                      aria-label={`${project.sector} sector project`}
-                    />
+                  
+                  {/* Sector Icon */}
+                  <div className="absolute top-3 right-3">
+                    <div className="bg-white/20 backdrop-blur-sm rounded-full p-2">
+                      <SectorIcon className="h-4 w-4 text-white" />
+                    </div>
+                  </div>
+                  
+                  {/* Capacity Badge */}
+                  <div className="absolute bottom-3 left-3">
+                    <div className="bg-black/70 backdrop-blur-sm rounded-full px-3 py-1">
+                      <span className="text-white text-sm font-semibold">{project.capacity}</span>
+                    </div>
+                  </div>
+                  
+                  {/* View Details Button */}
+                  <div className="absolute bottom-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <Button size="sm" variant="secondary" className="rounded-full">
+                      <Eye className="h-4 w-4" />
+                    </Button>
                   </div>
                 </div>
                 
-                <CardContent className="p-6">
-                  <div className="flex items-start justify-between mb-4">
-                    <div className="flex-1">
-                      <h3 className="text-xl font-semibold text-foreground mb-2" role="heading" aria-level={3}>
-                        {project.name}
-                      </h3>
-                      <div className="flex items-center gap-4 text-sm text-muted-foreground mb-2">
-                        <div className="flex items-center gap-1">
-                          <MapPin className="h-3 w-3" />
-                          {project.location}
-                        </div>
-                        <div className="flex items-center gap-1">
-                          <Calendar className="h-3 w-3" />
-                          {project.year}
-                        </div>
-                      </div>
-                      <div className="text-sm text-muted-foreground mb-2">
-                        Client: {project.client}
-                      </div>
-                    </div>
+                {/* Project Info */}
+                <CardContent className="p-4">
+                  <h3 className="font-semibold text-foreground mb-2 line-clamp-1">{project.name}</h3>
+                  <div className="flex items-center gap-2 text-sm text-muted-foreground mb-2">
+                    <MapPin className="h-3 w-3 flex-shrink-0" />
+                    <span className="truncate">{project.location}</span>
                   </div>
-
-                  <div className="grid grid-cols-2 gap-4 mb-4">
-                    <div className="flex items-center gap-2">
-                      <Zap className="h-4 w-4 text-secondary" />
-                      <div>
-                        <div className="font-semibold text-secondary text-lg">{project.capacity}</div>
-                        <div className="text-xs text-muted-foreground">Capacity</div>
-                      </div>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <DollarSign className="h-4 w-4 text-secondary" />
-                      <div>
-                        <div className="font-semibold text-secondary text-lg">{project.projectValue}</div>
-                        <div className="text-xs text-muted-foreground">Project Value</div>
-                      </div>
-                    </div>
+                  <div className="flex items-center gap-2 text-sm text-muted-foreground mb-3">
+                    <Calendar className="h-3 w-3 flex-shrink-0" />
+                    <span>{project.year}</span>
                   </div>
-
-                  <p className="text-muted-foreground mb-4 leading-relaxed line-clamp-3">
+                  <p className="text-sm text-muted-foreground line-clamp-2 mb-3">
                     {project.description}
                   </p>
-
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {project.features.slice(0, 3).map((feature, index) => (
-                      <Badge key={index} variant="outline" className="text-xs">
+                  
+                  {/* Key Features */}
+                  <div className="flex flex-wrap gap-1 mb-3">
+                    {project.features.slice(0, 2).map((feature, idx) => (
+                      <Badge key={idx} variant="outline" className="text-xs">
                         {feature}
                       </Badge>
                     ))}
-                    {project.features.length > 3 && (
+                    {project.features.length > 2 && (
                       <Badge variant="outline" className="text-xs">
-                        +{project.features.length - 3} more
+                        +{project.features.length - 2}
                       </Badge>
                     )}
                   </div>
-
-                  {/* Key Metrics */}
-                  <div className="grid grid-cols-3 gap-2 mb-4 text-center">
-                    <div className="bg-muted/50 rounded p-2">
-                      <div className="text-sm font-semibold text-foreground">{project.teamSize.split('+')[0]}</div>
-                      <div className="text-xs text-muted-foreground">Team Size</div>
+                  
+                  {/* Quick Stats */}
+                  <div className="grid grid-cols-2 gap-2 text-center">
+                    <div className="bg-muted/50 rounded-lg p-2">
+                      <div className="text-sm font-semibold text-foreground">{project.projectValue.split(' ')[0]}</div>
+                      <div className="text-xs text-muted-foreground">Value</div>
                     </div>
-                    <div className="bg-muted/50 rounded p-2">
-                      <div className="text-sm font-semibold text-foreground">{project.technicalSpecs.efficiency}</div>
-                      <div className="text-xs text-muted-foreground">Efficiency</div>
-                    </div>
-                    <div className="bg-muted/50 rounded p-2">
+                    <div className="bg-muted/50 rounded-lg p-2">
                       <div className="text-sm font-semibold text-foreground">{project.environmental.co2Reduction.split(' ')[0]}</div>
-                      <div className="text-xs text-muted-foreground">CO₂ Reduction</div>
+                      <div className="text-xs text-muted-foreground">CO₂ Saved</div>
                     </div>
                   </div>
                 </CardContent>
@@ -849,258 +862,298 @@ export default function ProjectsSection() {
           })}
         </div>
 
-        {/* Detailed Project Modal/Section */}
-        {selectedProject && (
-          <Card className="mb-16 border-2 border-primary/20">
-            <CardHeader className="pb-4">
-              <div className="flex items-start justify-between">
-                <div>
-                  <h3 className="text-2xl font-bold text-foreground mb-2">{selectedProject.name}</h3>
-                  <p className="text-muted-foreground">{selectedProject.description}</p>
+        {/* Project Details Modal */}
+        {isClient && (
+          <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
+            <DialogContent className="max-w-6xl max-h-[90vh] overflow-y-auto">
+              <DialogHeader>
+              <DialogTitle className="flex items-center gap-3">
+                <div className="flex items-center gap-2">
+                  {selectedProject && (
+                    <>
+                      {(() => {
+                        const SectorIcon = getSectorIcon(selectedProject.sector);
+                        return <SectorIcon className="h-6 w-6 text-primary" />;
+                      })()}
+                      <div>
+                        <h3 className="text-2xl font-bold">{selectedProject.name}</h3>
+                        <p className="text-muted-foreground font-normal">{selectedProject.location} • {selectedProject.year}</p>
+                      </div>
+                    </>
+                  )}
                 </div>
-                <Button 
-                  variant="ghost" 
-                  size="sm" 
-                  onClick={() => setSelectedProject(null)}
-                  data-testid="button-close-project-detail"
-                >
-                  <X className="h-4 w-4" />
-                </Button>
-              </div>
-            </CardHeader>
+                <div className="ml-auto">
+                  {selectedProject && (
+                    <Badge className={`${getStatusColor(selectedProject.status)}`}>
+                      {selectedProject.status}
+                    </Badge>
+                  )}
+                </div>
+              </DialogTitle>
+            </DialogHeader>
             
-            <CardContent>
-              <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-                <TabsList className="grid w-full grid-cols-6">
-                  <TabsTrigger value="overview" data-testid="tab-overview">Overview</TabsTrigger>
-                  <TabsTrigger value="technical" data-testid="tab-technical">Technical</TabsTrigger>
-                  <TabsTrigger value="challenges" data-testid="tab-challenges">Challenges</TabsTrigger>
-                  <TabsTrigger value="achievements" data-testid="tab-achievements">Achievements</TabsTrigger>
-                  <TabsTrigger value="environmental" data-testid="tab-environmental">Impact</TabsTrigger>
-                  <TabsTrigger value="timeline" data-testid="tab-timeline">Timeline</TabsTrigger>
-                </TabsList>
-                
-                <TabsContent value="overview" className="mt-6">
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div>
-                      <h4 className="text-lg font-semibold mb-4 flex items-center gap-2">
-                        <Building2 className="h-5 w-5" />
-                        Project Overview
-                      </h4>
-                      <div className="space-y-3">
-                        <div className="flex justify-between">
-                          <span className="text-muted-foreground">Client:</span>
-                          <span className="font-medium">{selectedProject.client}</span>
-                        </div>
-                        <div className="flex justify-between">
-                          <span className="text-muted-foreground">Location:</span>
-                          <span className="font-medium">{selectedProject.location}</span>
-                        </div>
-                        <div className="flex justify-between">
-                          <span className="text-muted-foreground">Capacity:</span>
-                          <span className="font-medium text-secondary">{selectedProject.capacity}</span>
-                        </div>
-                        <div className="flex justify-between">
-                          <span className="text-muted-foreground">Project Value:</span>
-                          <span className="font-medium text-secondary">{selectedProject.projectValue}</span>
-                        </div>
-                        <div className="flex justify-between">
-                          <span className="text-muted-foreground">Sector:</span>
-                          <span className="font-medium">{selectedProject.sector}</span>
-                        </div>
-                        <div className="flex justify-between">
-                          <span className="text-muted-foreground">Project Type:</span>
-                          <span className="font-medium">{selectedProject.projectType}</span>
-                        </div>
-                        <div className="flex justify-between">
-                          <span className="text-muted-foreground">Team Size:</span>
-                          <span className="font-medium">{selectedProject.teamSize}</span>
-                        </div>
-                      </div>
-                    </div>
-                    
-                    <div>
-                      <h4 className="text-lg font-semibold mb-4 flex items-center gap-2">
-                        <Award className="h-5 w-5" />
-                        Recognition & Certifications
-                      </h4>
-                      <div className="space-y-4">
-                        <div>
-                          <h5 className="font-medium mb-2">Awards</h5>
-                          <div className="space-y-1">
-                            {selectedProject.awards.map((award, index) => (
-                              <div key={index} className="text-sm text-muted-foreground flex items-center gap-2">
-                                <Award className="h-3 w-3 text-secondary" />
-                                {award}
-                              </div>
-                            ))}
+            {selectedProject && (
+              <div className="space-y-6">
+                {/* Project Image */}
+                <div className="aspect-video overflow-hidden rounded-lg">
+                  <Image
+                    src={selectedProject.image}
+                    alt={selectedProject.name}
+                    width={800}
+                    height={450}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+
+                {/* Quick Stats */}
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                  <Card className="text-center p-4">
+                    <Zap className="h-6 w-6 text-secondary mx-auto mb-2" />
+                    <div className="text-xl font-bold text-secondary">{selectedProject.capacity}</div>
+                    <div className="text-sm text-muted-foreground">Capacity</div>
+                  </Card>
+                  <Card className="text-center p-4">
+                    <DollarSign className="h-6 w-6 text-secondary mx-auto mb-2" />
+                    <div className="text-xl font-bold text-secondary">{selectedProject.projectValue}</div>
+                    <div className="text-sm text-muted-foreground">Project Value</div>
+                  </Card>
+                  <Card className="text-center p-4">
+                    <Users className="h-6 w-6 text-accent mx-auto mb-2" />
+                    <div className="text-xl font-bold text-accent">{selectedProject.teamSize}</div>
+                    <div className="text-sm text-muted-foreground">Team Size</div>
+                  </Card>
+                  <Card className="text-center p-4">
+                    <Leaf className="h-6 w-6 text-accent mx-auto mb-2" />
+                    <div className="text-xl font-bold text-accent">{selectedProject.environmental.co2Reduction}</div>
+                    <div className="text-sm text-muted-foreground">CO₂ Reduction/Year</div>
+                  </Card>
+                </div>
+
+                {/* Description */}
+                <div className="bg-muted/50 p-6 rounded-lg">
+                  <p className="text-muted-foreground leading-relaxed">
+                    {selectedProject.description}
+                  </p>
+                </div>
+
+                {/* Detailed Tabs */}
+                <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
+                  <TabsList className="grid w-full grid-cols-6">
+                    <TabsTrigger value="overview" className="text-xs">Overview</TabsTrigger>
+                    <TabsTrigger value="technical" className="text-xs">Technical</TabsTrigger>
+                    <TabsTrigger value="challenges" className="text-xs">Challenges</TabsTrigger>
+                    <TabsTrigger value="achievements" className="text-xs">Achievements</TabsTrigger>
+                    <TabsTrigger value="environmental" className="text-xs">Impact</TabsTrigger>
+                    <TabsTrigger value="timeline" className="text-xs">Timeline</TabsTrigger>
+                  </TabsList>
+                  
+                  <TabsContent value="overview" className="mt-6 space-y-4">
+                    <div className="grid md:grid-cols-2 gap-6">
+                      <div>
+                        <h4 className="text-lg font-semibold mb-4 flex items-center gap-2">
+                          <Building2 className="h-5 w-5" />
+                          Project Details
+                        </h4>
+                        <div className="space-y-3">
+                          <div className="flex justify-between">
+                            <span className="text-muted-foreground">Client:</span>
+                            <span className="font-medium">{selectedProject.client}</span>
+                          </div>
+                          <div className="flex justify-between">
+                            <span className="text-muted-foreground">Sector:</span>
+                            <span className="font-medium">{selectedProject.sector}</span>
+                          </div>
+                          <div className="flex justify-between">
+                            <span className="text-muted-foreground">Project Type:</span>
+                            <span className="font-medium">{selectedProject.projectType}</span>
+                          </div>
+                          <div className="flex justify-between">
+                            <span className="text-muted-foreground">Scope:</span>
+                            <span className="font-medium">{selectedProject.scope}</span>
                           </div>
                         </div>
-                        
-                        <div>
-                          <h5 className="font-medium mb-2">Certifications</h5>
-                          <div className="flex flex-wrap gap-2">
-                            {selectedProject.certifications.map((cert, index) => (
-                              <Badge key={index} variant="outline" className="text-xs">
-                                <ShieldCheck className="h-3 w-3 mr-1" />
-                                {cert}
-                              </Badge>
-                            ))}
+                      </div>
+                      
+                      <div>
+                        <h4 className="text-lg font-semibold mb-4 flex items-center gap-2">
+                          <Award className="h-5 w-5" />
+                          Recognition
+                        </h4>
+                        <div className="space-y-4">
+                          <div>
+                            <h5 className="font-medium mb-2">Awards</h5>
+                            <div className="space-y-1">
+                              {selectedProject.awards.map((award, index) => (
+                                <div key={index} className="text-sm text-muted-foreground flex items-center gap-2">
+                                  <Award className="h-3 w-3 text-secondary" />
+                                  {award}
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                          
+                          <div>
+                            <h5 className="font-medium mb-2">Certifications</h5>
+                            <div className="flex flex-wrap gap-2">
+                              {selectedProject.certifications.map((cert, index) => (
+                                <Badge key={index} variant="outline" className="text-xs">
+                                  {cert}
+                                </Badge>
+                              ))}
+                            </div>
                           </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                </TabsContent>
-                
-                <TabsContent value="technical" className="mt-6">
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div>
-                      <h4 className="text-lg font-semibold mb-4 flex items-center gap-2">
-                        <Settings className="h-5 w-5" />
-                        Technical Specifications
-                      </h4>
-                      <div className="space-y-3">
-                        <div className="flex justify-between">
-                          <span className="text-muted-foreground">Module Type:</span>
-                          <span className="font-medium">{selectedProject.technicalSpecs.moduleType}</span>
-                        </div>
-                        <div className="flex justify-between">
-                          <span className="text-muted-foreground">Inverter Type:</span>
-                          <span className="font-medium">{selectedProject.technicalSpecs.inverterType}</span>
-                        </div>
-                        <div className="flex justify-between">
-                          <span className="text-muted-foreground">Tracking System:</span>
-                          <span className="font-medium">{selectedProject.technicalSpecs.trackingSystem}</span>
-                        </div>
-                        <div className="flex justify-between">
-                          <span className="text-muted-foreground">Module Count:</span>
-                          <span className="font-medium text-secondary">{selectedProject.technicalSpecs.moduleCount}</span>
-                        </div>
-                        <div className="flex justify-between">
-                          <span className="text-muted-foreground">Efficiency:</span>
-                          <span className="font-medium text-secondary">{selectedProject.technicalSpecs.efficiency}</span>
-                        </div>
-                        <div className="flex justify-between">
-                          <span className="text-muted-foreground">Annual Generation:</span>
-                          <span className="font-medium text-secondary">{selectedProject.technicalSpecs.annualGeneration}</span>
-                        </div>
-                      </div>
-                    </div>
-                    
-                    <div>
-                      <h4 className="text-lg font-semibold mb-4 flex items-center gap-2">
-                        <Lightbulb className="h-5 w-5" />
-                        Technology Implementation
-                      </h4>
-                      <div className="space-y-2">
-                        {selectedProject.technology.map((tech, index) => (
-                          <div key={index} className="flex items-center gap-2 text-sm">
-                            <CheckCircle className="h-4 w-4 text-accent" />
-                            <span>{tech}</span>
+                  </TabsContent>
+                  
+                  <TabsContent value="technical" className="mt-6 space-y-4">
+                    <div className="grid md:grid-cols-2 gap-6">
+                      <div>
+                        <h4 className="text-lg font-semibold mb-4 flex items-center gap-2">
+                          <Settings className="h-5 w-5" />
+                          Technical Specifications
+                        </h4>
+                        <div className="space-y-3">
+                          <div className="flex justify-between">
+                            <span className="text-muted-foreground">Module Type:</span>
+                            <span className="font-medium">{selectedProject.technicalSpecs.moduleType}</span>
                           </div>
-                        ))}
+                          <div className="flex justify-between">
+                            <span className="text-muted-foreground">Inverter Type:</span>
+                            <span className="font-medium">{selectedProject.technicalSpecs.inverterType}</span>
+                          </div>
+                          <div className="flex justify-between">
+                            <span className="text-muted-foreground">Tracking System:</span>
+                            <span className="font-medium">{selectedProject.technicalSpecs.trackingSystem}</span>
+                          </div>
+                          <div className="flex justify-between">
+                            <span className="text-muted-foreground">Module Count:</span>
+                            <span className="font-medium text-secondary">{selectedProject.technicalSpecs.moduleCount}</span>
+                          </div>
+                          <div className="flex justify-between">
+                            <span className="text-muted-foreground">Efficiency:</span>
+                            <span className="font-medium text-secondary">{selectedProject.technicalSpecs.efficiency}</span>
+                          </div>
+                          <div className="flex justify-between">
+                            <span className="text-muted-foreground">Annual Generation:</span>
+                            <span className="font-medium text-secondary">{selectedProject.technicalSpecs.annualGeneration}</span>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <div>
+                        <h4 className="text-lg font-semibold mb-4 flex items-center gap-2">
+                          <Lightbulb className="h-5 w-5" />
+                          Technology Implementation
+                        </h4>
+                        <div className="space-y-2">
+                          {selectedProject.technology.map((tech, index) => (
+                            <div key={index} className="flex items-center gap-2 text-sm">
+                              <CheckCircle className="h-4 w-4 text-accent" />
+                              <span>{tech}</span>
+                            </div>
+                          ))}
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </TabsContent>
-                
-                <TabsContent value="challenges" className="mt-6">
-                  <h4 className="text-lg font-semibold mb-4 flex items-center gap-2">
-                    <Target className="h-5 w-5" />
-                    Project Challenges & Solutions
-                  </h4>
-                  <div className="space-y-6">
-                    {selectedProject.challenges.map((challenge, index) => (
-                      <Card key={index} className="p-4">
-                        <h5 className="font-semibold text-foreground mb-2 flex items-center gap-2">
-                          <AlertCircle className="h-4 w-4 text-secondary" />
-                          {challenge.title}
-                        </h5>
-                        <p className="text-muted-foreground mb-3">{challenge.description}</p>
-                        <div className="bg-accent/10 p-3 rounded">
-                          <h6 className="font-medium text-accent mb-1">Solution Implemented:</h6>
-                          <p className="text-sm">{challenge.solution}</p>
+                  </TabsContent>
+                  
+                  <TabsContent value="challenges" className="mt-6 space-y-4">
+                    <h4 className="text-lg font-semibold mb-4 flex items-center gap-2">
+                      <Target className="h-5 w-5" />
+                      Project Challenges & Solutions
+                    </h4>
+                    <div className="space-y-4">
+                      {selectedProject.challenges.map((challenge, index) => (
+                        <Card key={index} className="p-4">
+                          <h5 className="font-semibold text-foreground mb-2 flex items-center gap-2">
+                            <AlertCircle className="h-4 w-4 text-secondary" />
+                            {challenge.title}
+                          </h5>
+                          <p className="text-muted-foreground mb-3 text-sm">{challenge.description}</p>
+                          <div className="bg-accent/10 p-3 rounded">
+                            <h6 className="font-medium text-accent mb-1 text-sm">Solution Implemented:</h6>
+                            <p className="text-sm">{challenge.solution}</p>
+                          </div>
+                        </Card>
+                      ))}
+                    </div>
+                  </TabsContent>
+                  
+                  <TabsContent value="achievements" className="mt-6 space-y-4">
+                    <div className="grid md:grid-cols-2 gap-6">
+                      <div>
+                        <h4 className="text-lg font-semibold mb-4 flex items-center gap-2">
+                          <TrendingUp className="h-5 w-5" />
+                          Key Achievements
+                        </h4>
+                        <div className="space-y-3">
+                          {selectedProject.achievements.map((achievement, index) => (
+                            <div key={index} className="flex items-start gap-2">
+                              <CheckCircle className="h-4 w-4 text-accent mt-0.5 flex-shrink-0" />
+                              <span className="text-sm">{achievement}</span>
+                            </div>
+                          ))}
                         </div>
+                      </div>
+                      
+                      <div>
+                        <h4 className="text-lg font-semibold mb-4 flex items-center gap-2">
+                          <Layers className="h-5 w-5" />
+                          Insights & Impact
+                        </h4>
+                        <div className="space-y-4">
+                          <div>
+                            <h5 className="font-medium mb-2 text-secondary">Key Lesson Learned</h5>
+                            <p className="text-sm text-muted-foreground">{selectedProject.lessonLearned}</p>
+                          </div>
+                          <div>
+                            <h5 className="font-medium mb-2 text-secondary">Future Impact</h5>
+                            <p className="text-sm text-muted-foreground">{selectedProject.futureImpact}</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </TabsContent>
+                  
+                  <TabsContent value="environmental" className="mt-6 space-y-4">
+                    <h4 className="text-lg font-semibold mb-4 flex items-center gap-2">
+                      <Leaf className="h-5 w-5" />
+                      Environmental Impact
+                    </h4>
+                    <div className="grid md:grid-cols-3 gap-4">
+                      <Card className="text-center p-4">
+                        <Leaf className="h-8 w-8 text-accent mx-auto mb-2" />
+                        <div className="text-2xl font-bold text-foreground mb-1">
+                          {selectedProject.environmental.co2Reduction}
+                        </div>
+                        <div className="text-sm text-muted-foreground">CO₂ Reduction Annually</div>
                       </Card>
-                    ))}
-                  </div>
-                </TabsContent>
-                
-                <TabsContent value="achievements" className="mt-6">
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div>
-                      <h4 className="text-lg font-semibold mb-4 flex items-center gap-2">
-                        <TrendingUp className="h-5 w-5" />
-                        Key Achievements
-                      </h4>
-                      <div className="space-y-3">
-                        {selectedProject.achievements.map((achievement, index) => (
-                          <div key={index} className="flex items-start gap-2">
-                            <CheckCircle className="h-4 w-4 text-accent mt-0.5 flex-shrink-0" />
-                            <span className="text-sm">{achievement}</span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                    
-                    <div>
-                      <h4 className="text-lg font-semibold mb-4 flex items-center gap-2">
-                        <Layers className="h-5 w-5" />
-                        Lessons Learned & Future Impact
-                      </h4>
-                      <div className="space-y-4">
-                        <div>
-                          <h5 className="font-medium mb-2 text-secondary">Key Lesson Learned</h5>
-                          <p className="text-sm text-muted-foreground">{selectedProject.lessonLearned}</p>
+                      
+                      <Card className="text-center p-4">
+                        <Zap className="h-8 w-8 text-secondary mx-auto mb-2" />
+                        <div className="text-2xl font-bold text-foreground mb-1">
+                          {selectedProject.environmental.energyEquivalent.split(' ')[1]}
                         </div>
-                        <div>
-                          <h5 className="font-medium mb-2 text-secondary">Future Impact</h5>
-                          <p className="text-sm text-muted-foreground">{selectedProject.futureImpact}</p>
+                        <div className="text-sm text-muted-foreground">Homes Powered Annually</div>
+                      </Card>
+                      
+                      <Card className="text-center p-4">
+                        <Leaf className="h-8 w-8 text-accent mx-auto mb-2" />
+                        <div className="text-2xl font-bold text-foreground mb-1">
+                          {selectedProject.environmental.treesPlanted.split(' ')[4]}
                         </div>
-                      </div>
+                        <div className="text-sm text-muted-foreground">Million Trees Equivalent</div>
+                      </Card>
                     </div>
-                  </div>
-                </TabsContent>
-                
-                <TabsContent value="environmental" className="mt-6">
-                  <h4 className="text-lg font-semibold mb-4 flex items-center gap-2">
-                    <Leaf className="h-5 w-5" />
-                    Environmental & Social Impact
-                  </h4>
-                  <div className="grid md:grid-cols-3 gap-6">
-                    <Card className="text-center p-4">
-                      <Leaf className="h-8 w-8 text-accent mx-auto mb-2" />
-                      <div className="text-2xl font-bold text-foreground mb-1">
-                        {selectedProject.environmental.co2Reduction}
-                      </div>
-                      <div className="text-sm text-muted-foreground">CO₂ Reduction Annually</div>
-                    </Card>
-                    
-                    <Card className="text-center p-4">
-                      <Zap className="h-8 w-8 text-secondary mx-auto mb-2" />
-                      <div className="text-2xl font-bold text-foreground mb-1">
-                        {selectedProject.environmental.energyEquivalent.split(' ')[1]}
-                      </div>
-                      <div className="text-sm text-muted-foreground">Homes Powered Annually</div>
-                    </Card>
-                    
-                    <Card className="text-center p-4">
-                      <Leaf className="h-8 w-8 text-accent mx-auto mb-2" />
-                      <div className="text-2xl font-bold text-foreground mb-1">
-                        {selectedProject.environmental.treesPlanted.split(' ')[4]}
-                      </div>
-                      <div className="text-sm text-muted-foreground">Million Trees Equivalent</div>
-                    </Card>
-                  </div>
-                </TabsContent>
-                
-                <TabsContent value="timeline" className="mt-6">
-                  <h4 className="text-lg font-semibold mb-4 flex items-center gap-2">
-                    <Clock className="h-5 w-5" />
-                    Project Timeline
-                  </h4>
-                  <div className="space-y-4">
+                  </TabsContent>
+                  
+                  <TabsContent value="timeline" className="mt-6 space-y-4">
+                    <h4 className="text-lg font-semibold mb-4 flex items-center gap-2">
+                      <Clock className="h-5 w-5" />
+                      Project Timeline
+                    </h4>
                     <div className="grid md:grid-cols-2 gap-4">
                       <Card className="p-4">
                         <h5 className="font-medium mb-2 flex items-center gap-2">
@@ -1134,53 +1187,17 @@ export default function ProjectsSection() {
                         <p className="text-sm text-muted-foreground">{selectedProject.timeline.completion}</p>
                       </Card>
                     </div>
-                  </div>
-                </TabsContent>
-              </Tabs>
-            </CardContent>
-          </Card>
+                  </TabsContent>
+                </Tabs>
+              </div>
+            )}
+          </DialogContent>
+        </Dialog>
         )}
-
-        {/* Engineering Excellence Section */}
-        <Card className="mb-16">
-          <CardHeader>
-            <h3 className="text-2xl font-bold text-foreground flex items-center gap-2" role="heading" aria-level={3}>
-              <Wrench className="h-6 w-6 text-secondary" aria-hidden="true" />
-              Engineering Excellence & Methodologies
-            </h3>
-          </CardHeader>
-          <CardContent>
-            <div className="grid md:grid-cols-3 gap-6">
-              <div className="text-center">
-                <BarChart3 className="h-12 w-12 text-primary mx-auto mb-4" />
-                <h4 className="font-semibold mb-2">Advanced Project Management</h4>
-                <p className="text-sm text-muted-foreground">
-                  Utilizing cutting-edge project management tools and methodologies for seamless execution and real-time monitoring across all project phases.
-                </p>
-              </div>
-              
-              <div className="text-center">
-                <Activity className="h-12 w-12 text-secondary mx-auto mb-4" />
-                <h4 className="font-semibold mb-2">Quality Assurance Systems</h4>
-                <p className="text-sm text-muted-foreground">
-                  Comprehensive quality control protocols with real-time monitoring, automated verification systems, and rigorous testing procedures.
-                </p>
-              </div>
-              
-              <div className="text-center">
-                <PieChart className="h-12 w-12 text-accent mx-auto mb-4" />
-                <h4 className="font-semibold mb-2">Performance Optimization</h4>
-                <p className="text-sm text-muted-foreground">
-                  Data-driven optimization strategies using predictive analytics, machine learning, and IoT monitoring for maximum efficiency.
-                </p>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
 
         {/* Call to Action */}
         <div className="text-center">
-          <Card className="p-8 bg-gradient-to-r from-primary/5 to-secondary/5">
+          <Card className="p-8 bg-gradient-to-r from-primary/5 to-secondary/5 hover:shadow-lg transition-shadow duration-300">
             <h3 className="text-2xl font-bold text-foreground mb-4">
               Ready to Start Your Next Solar Project?
             </h3>
@@ -1188,11 +1205,11 @@ export default function ProjectsSection() {
               Partner with Fazna Solar Energy for world-class INC services and proven expertise in utility-scale solar installations.
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
-              <Button size="lg" data-testid="button-discuss-project">
+              <Button size="lg">
                 Discuss Your Project
                 <ExternalLink className="ml-2 h-4 w-4" />
               </Button>
-              <Button size="lg" variant="outline" data-testid="button-download-portfolio">
+              <Button size="lg" variant="outline">
                 Download Portfolio PDF
                 <ExternalLink className="ml-2 h-4 w-4" />
               </Button>

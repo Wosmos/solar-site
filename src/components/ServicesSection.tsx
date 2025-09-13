@@ -23,8 +23,6 @@ import {
   BarChart3,
   Monitor,
   Lightbulb,
-  FileCheck,
-  Headphones,
   TrendingUp,
   Layers,
   Network,
@@ -53,7 +51,7 @@ const coreServices = [
       'Precision alignment systems'
     ],
     technicalSpecs: [
-      'Installation capacity: 500+ MW annually',
+      'Installation capacity: 1+ GW annually',
       'Tracking accuracy: ±0.5° tolerance',
       'Foundation depth: Up to 3.5m',
       'Wind resistance: 150+ km/h design'
@@ -80,7 +78,7 @@ const coreServices = [
       'Performance validation systems'
     ],
     technicalSpecs: [
-      'Installation rate: 1000+ modules/day',
+      'Installation rate: 7000+ modules/day',
       'Module power range: 400W-700W',
       'Accuracy tolerance: ±2mm',
       'Quality score: >99.5% first-pass rate'
@@ -124,7 +122,7 @@ const coreServices = [
     title: 'Utility-Scale Ground Mounted',
     category: 'Large-Scale Infrastructure',
     description: 'End-to-end utility-scale solar installations with comprehensive project management, from 50MW to 1GW+ developments across desert and industrial environments.',
-    detailedDescription: 'Our utility-scale service manages complete INC delivery for large solar farms including site preparation, infrastructure development, grid integration, and commissioning. We leverage extensive experience from projects like Sweihan (1.18GW) and Al Dafra (2GW).',
+    detailedDescription: 'Our utility-scale service manages complete INC delivery for large solar farms including site preparation, infrastructure development, grid integration, and commissioning. We leverage extensive experience from projects like Sweihan (1.18GW) and Aldhafra (2GW).',
     capabilities: [
       'Site preparation & civil works',
       'Large-scale infrastructure development',
@@ -312,7 +310,7 @@ const technicalCapabilities = [
     metrics: [
       { label: 'UAE Operations', value: 'Dubai HQ', description: 'Primary operations base' },
       { label: 'Regional Presence', value: 'GCC + India', description: 'Multi-country operations' },
-      { label: 'Project Experience', value: '15+ Countries', description: 'Global project portfolio' },
+      { label: 'Project Experience', value: '7+ Countries', description: 'Global project portfolio' },
       { label: 'Local Content', value: '40%+', description: 'Regional value addition' }
     ]
   }
@@ -329,7 +327,7 @@ const projectHighlights = [
     technology: 'Single-axis tracking, bifacial modules'
   },
   {
-    name: 'Al Dafra Solar',
+    name: 'Aldhafra Solar',
     capacity: '2GW',
     location: 'Abu Dhabi, UAE', 
     role: 'Installation Contractor',
@@ -471,7 +469,7 @@ export default function ServicesSection() {
             </h1>
             <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed mb-8">
               Delivering record-breaking solar installations from 50MW to multi-gigawatt scale across the Middle East and India. 
-              Our proven track record includes landmark projects like Sweihan (1.18GW) and Al Dafra (2GW) with 
+              Our proven track record includes landmark projects like Sweihan (1.18GW) and Aldhafra (2GW) with 
               Industry-Leading Safety Record and industry-leading performance ratios.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
