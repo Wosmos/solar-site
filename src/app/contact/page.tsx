@@ -22,9 +22,7 @@ export default function ContactPage() {
       <Header />
       <main id="main-content" className="flex-1 focus:outline-none" tabIndex={-1}>
         {/* Temporary Test Panel - Remove after testing */}
-        <div className="container mx-auto px-4 pt-8">
-          <RecaptchaTest />
-        </div>
+        
         <ContactSection />
       </main>
       <Footer />
